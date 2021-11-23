@@ -3,9 +3,55 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31410.357
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 - UI", "01 - UI", "{47A9923A-A980-433A-A6AB-B6D2CF360991}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 - Domain", "02 - Domain", "{8351BD6A-67E2-43B4-8FB8-3CC6AE3FC088}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - Models", "03 - Models", "{EB730BD9-2412-46D3-86E4-8701E0CE67BC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 - Infraestrutura", "04 - Infraestrutura", "{DA3ABE05-9AB1-455B-B67F-E3C5C781F85D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalendarApp.Infra", "CalendarApp.Infra\CalendarApp.Infra.csproj", "{CDB25E60-3CF4-473B-AE7F-4E9719693711}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalendarApp.Models", "CalendarApp.Models\CalendarApp.Models.csproj", "{4857A160-CD07-445C-8B26-5050D78ABA65}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalendarApp.Domain", "CalendarApp.Domain\CalendarApp.Domain.csproj", "{1A0C12B6-5348-4796-85C0-73725912DC6B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalendarApp.App", "CalendarApp.App\CalendarApp.App.csproj", "{80A381B1-3818-4F95-A092-10B68BDAE74E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "09 - SQL", "09 - SQL", "{EFBCB0EB-3B31-4930-B551-8432254B3C78}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CDB25E60-3CF4-473B-AE7F-4E9719693711}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDB25E60-3CF4-473B-AE7F-4E9719693711}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDB25E60-3CF4-473B-AE7F-4E9719693711}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDB25E60-3CF4-473B-AE7F-4E9719693711}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4857A160-CD07-445C-8B26-5050D78ABA65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4857A160-CD07-445C-8B26-5050D78ABA65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4857A160-CD07-445C-8B26-5050D78ABA65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4857A160-CD07-445C-8B26-5050D78ABA65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A0C12B6-5348-4796-85C0-73725912DC6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A0C12B6-5348-4796-85C0-73725912DC6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A0C12B6-5348-4796-85C0-73725912DC6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A0C12B6-5348-4796-85C0-73725912DC6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80A381B1-3818-4F95-A092-10B68BDAE74E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80A381B1-3818-4F95-A092-10B68BDAE74E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80A381B1-3818-4F95-A092-10B68BDAE74E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80A381B1-3818-4F95-A092-10B68BDAE74E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CDB25E60-3CF4-473B-AE7F-4E9719693711} = {DA3ABE05-9AB1-455B-B67F-E3C5C781F85D}
+		{4857A160-CD07-445C-8B26-5050D78ABA65} = {EB730BD9-2412-46D3-86E4-8701E0CE67BC}
+		{1A0C12B6-5348-4796-85C0-73725912DC6B} = {8351BD6A-67E2-43B4-8FB8-3CC6AE3FC088}
+		{80A381B1-3818-4F95-A092-10B68BDAE74E} = {47A9923A-A980-433A-A6AB-B6D2CF360991}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {939F9B19-C87E-4D46-A1C5-172E766855DB}
