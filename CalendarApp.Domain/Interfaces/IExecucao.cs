@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CalendarApp.App.Interfaces
+namespace CalendarApp.Domain.Interfaces
 {
-    public interface IAgendamento
+    public interface IExecucao
     {
 
     }

@@ -17,8 +17,10 @@ namespace CalendarApp.App
         {
             var service = serviceCollection;
 
-            service.AddScoped<IConexao, Conexao>((Conn) => new Conexao("Server=127.0.0.1,1433; Database=CalendarApp; User Id = sa; Password=yourStrong(!)Password"));
+            service.AddScoped<IConexao, Conexao>((Conn) => new Conexao("Server=127.0.0.1,1433; Database=CalendarApp; User Id=sa; Password=yourStrong(!)Password"));
             service.AddScoped<IAgendamentoRepositorio, AgendamentoRepositorio>();
+            service.AddScoped<IExecucaoRepositorio, ExecucaoRepositorio>();
+            service.AddScoped<IComandoRepositorio, ComandoRepositorio>();
             
             Container = service.BuildServiceProvider();
 

@@ -20,6 +20,9 @@ namespace CalendarApp.App
                 var serviceCollection = new ServiceCollection();
                 Startup.Register(serviceCollection);
                 var age = Startup.Container.GetService<IAgendamentoRepositorio>();
+                var exe = Startup.Container.GetService<IExecucaoRepositorio>();
+                var cmd = Startup.Container.GetService<IComandoRepositorio>();
+
                 var ag = new Agendamento();
                 ag.Nome = "Teste";
                 ag.Descricao = "Teste";
@@ -27,7 +30,24 @@ namespace CalendarApp.App
                 ag.CadastradoEm = DateTime.Now;
                 ag.AtualizadoEm = DateTime.Now;
 
-                age.Salvar(ag);
+                var idAg = age.Salvar(ag);
+
+                var comando = new Comando();
+                comando.Nome = "Novo Comando";
+                comando.Descricao = "Descrição";
+                comando.Caminho = "C:\\Users\\willdun";
+                comando.Executavel = true;
+
+                var idCmd = cmd.Salvar(comando);
+
+
+                var ex = new Execucao();
+                ex.AgendamentoId = idAg;
+                ex.ComandoId = idCmd;
+                ex.Data = DateTime.Now;
+
+
+                exe.Salvar(ex);
 
             }catch(Exception ex)
             {
