@@ -1,0 +1,37 @@
+﻿IF OBJECT_ID('spSalvarComando') IS NOT NULL
+	DROP PROCEDURE spSalvarComando
+GO
+CREATE PROCEDURE spSalvarComando (
+	@NOME VARCHAR(100),
+	@DESCRICAO VARCHAR(255) = NULL,
+	@CAMINHO VARCHAR(255),
+	@EXECUTAVEL BIT,
+	@CADASTRADOEM DATETIME,
+	@ATUALIZADOEM DATETIME
+)
+AS
+	BEGIN
+		
+		INSERT INTO
+		Comando 
+		(
+			Nome,
+			Descricao,
+			Caminho,
+			Executavel,
+			CadastradoEm,
+			AtualizadoEm
+		)
+		VALUES
+		(
+			@NOME,
+			@DESCRICAO,
+			@CAMINHO,
+			@EXECUTAVEL,
+			@CADASTRADOEM,
+			@ATUALIZADOEM
+		)
+
+		SELECT SCOPE_IDENTITY();
+
+	END

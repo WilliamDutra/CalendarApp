@@ -1,4 +1,6 @@
-﻿using CalendarApp.Domain.Interfaces;
+﻿using CalendarApp.App.Interfaces;
+using CalendarApp.App.Services;
+using CalendarApp.Domain.Interfaces;
 using CalendarApp.Domain.Repositorios;
 using CalendarApp.Infra;
 using CalendarApp.Infra.Interfaces;
@@ -21,6 +23,11 @@ namespace CalendarApp.App
             service.AddScoped<IAgendamentoRepositorio, AgendamentoRepositorio>();
             service.AddScoped<IExecucaoRepositorio, ExecucaoRepositorio>();
             service.AddScoped<IComandoRepositorio, ComandoRepositorio>();
+
+            service.AddScoped<IAgendamento, AgendamentoService>();
+            service.AddScoped<IComando, ComandoService>();
+            service.AddScoped<IExecucao, ExecucaoService>();
+            
             
             Container = service.BuildServiceProvider();
 

@@ -1,0 +1,34 @@
+﻿IF OBJECT_ID('spSalvarExecucao') IS NOT NULL
+	DROP PROCEDURE spSalvarExecucao
+GO
+CREATE PROCEDURE spSalvarExecucao (
+	@IDAGENDAMENTO INT,
+	@IDCOMANDO INT,
+	@DATA DATETIME,
+	@CADASTRADOEM DATETIME,
+	@ATUALIZADOEM DATETIME
+)
+AS
+	BEGIN
+		
+		INSERT INTO 
+		Execucao 
+		(
+			AgendamentoId,
+			ComandoId,
+			Data,
+			CadastradoEm,
+			AtualizadoEm
+		)
+		VALUES
+		(
+			@IDAGENDAMENTO,
+			@IDCOMANDO,
+			@DATA,
+			@CADASTRADOEM,
+			@ATUALIZADOEM
+		)
+
+		SELECT SCOPE_IDENTITY();
+
+	END

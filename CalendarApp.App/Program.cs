@@ -1,4 +1,5 @@
-﻿using CalendarApp.Domain.Interfaces;
+﻿using CalendarApp.App.Interfaces;
+using CalendarApp.Domain.Interfaces;
 using CalendarApp.Domain.Repositorios;
 using CalendarApp.Infra;
 using CalendarApp.Infra.Interfaces;
@@ -19,9 +20,9 @@ namespace CalendarApp.App
 
                 var serviceCollection = new ServiceCollection();
                 Startup.Register(serviceCollection);
-                var age = Startup.Container.GetService<IAgendamentoRepositorio>();
-                var exe = Startup.Container.GetService<IExecucaoRepositorio>();
-                var cmd = Startup.Container.GetService<IComandoRepositorio>();
+                var age = Startup.Container.GetService<IAgendamento>();
+                var exe = Startup.Container.GetService<IExecucao>();
+                var cmd = Startup.Container.GetService<IComando>();
 
                 var ag = new Agendamento();
                 ag.Nome = "Teste";
