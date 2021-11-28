@@ -21,6 +21,26 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalendarApp.App", "Calendar
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "09 - SQL", "09 - SQL", "{EFBCB0EB-3B31-4930-B551-8432254B3C78}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Procedures", "Procedures", "{121218CF-CEB7-4A03-8F77-DF6029895ECA}"
+	ProjectSection(SolutionItems) = preProject
+		spAlterarAgendamento.sql = spAlterarAgendamento.sql
+		spAlterarComando.sql = spAlterarComando.sql
+		spListarAgendamento.sql = spListarAgendamento.sql
+		spListarComando.sql = spListarComando.sql
+		spSalvarAgendamento.sql = spSalvarAgendamento.sql
+		spSalvarComando.sql = spSalvarComando.sql
+		spSalvarExecucao.sql = spSalvarExecucao.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tables", "Tables", "{589B0088-E08A-4974-8C20-57C93F937222}"
+	ProjectSection(SolutionItems) = preProject
+		Agendamento.sql = Agendamento.sql
+		Comando.sql = Comando.sql
+		Execucao.sql = Execucao.sql
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalendarApp.UI", "CalendarApp.UI\CalendarApp.UI.csproj", "{8B012E6F-30D2-4C7F-897B-9B6C70905FDA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +63,10 @@ Global
 		{80A381B1-3818-4F95-A092-10B68BDAE74E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80A381B1-3818-4F95-A092-10B68BDAE74E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80A381B1-3818-4F95-A092-10B68BDAE74E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B012E6F-30D2-4C7F-897B-9B6C70905FDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B012E6F-30D2-4C7F-897B-9B6C70905FDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B012E6F-30D2-4C7F-897B-9B6C70905FDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B012E6F-30D2-4C7F-897B-9B6C70905FDA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -52,6 +76,9 @@ Global
 		{4857A160-CD07-445C-8B26-5050D78ABA65} = {EB730BD9-2412-46D3-86E4-8701E0CE67BC}
 		{1A0C12B6-5348-4796-85C0-73725912DC6B} = {8351BD6A-67E2-43B4-8FB8-3CC6AE3FC088}
 		{80A381B1-3818-4F95-A092-10B68BDAE74E} = {47A9923A-A980-433A-A6AB-B6D2CF360991}
+		{121218CF-CEB7-4A03-8F77-DF6029895ECA} = {EFBCB0EB-3B31-4930-B551-8432254B3C78}
+		{589B0088-E08A-4974-8C20-57C93F937222} = {EFBCB0EB-3B31-4930-B551-8432254B3C78}
+		{8B012E6F-30D2-4C7F-897B-9B6C70905FDA} = {47A9923A-A980-433A-A6AB-B6D2CF360991}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {939F9B19-C87E-4D46-A1C5-172E766855DB}
