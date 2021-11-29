@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CalendarApp.UI.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -20,6 +21,7 @@ namespace CalendarApp.UI.FRM
         public FrmCriarAgendamento()
         {
             InitializeComponent();
+            DataContext = new FrmCriarAgendamentoViewModel();
         }
     }
 }
