@@ -9,25 +9,44 @@
         xmlns:osb="clr-namespace:Xceed.Wpf.Toolkit.Obselete;assembly=WPFToolkit.Extended"
         Title="Criar Agendamento" Height="700" Width="400">
 
+
+    <Window.Resources>
+
+        <Style x:Key="CustomErrorControlOnErrorStyle" TargetType="TextBox">
+            <Setter Property="Validation.ErrorTemplate">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <StackPanel>
+                            <AdornedElementPlaceholder x:Name="placeholder" />
+                            <TextBlock FontSize="11" FontStyle="Italic" Foreground="Red"
+                                       Text="{ Binding ElementName=placeholder, Path=AdornedElement.(Validation.Errors)[0].ErrorContent }" />
+                        </StackPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
+    
+    
     <Grid>
         <StackPanel Margin="30">
             <Border Padding="0,10,0,10">
                 <StackPanel>
 
-                    <StackPanel>
+                    <StackPanel Margin="0,0,0,20">
                         <Label Content="Nome"/>
-                        <TextBox x:Name="Nome" Height="30" Text="{ Binding Nome  }" />
+                        <TextBox x:Name="Nome" Height="30" Text="{ Binding Nome, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True  }" Style="{StaticResource CustomErrorControlOnErrorStyle}" />
                     </StackPanel>
 
-                    <StackPanel>
+                    <StackPanel Margin="0,0,0,20">
                         <Label Content="Descrição" />
-                        <TextBox x:Name="Descricao" Height="100" Text="{ Binding Descricao }" />
+                        <TextBox x:Name="Descricao" Height="100" Text="{ Binding Descricao, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True  }" Style="{StaticResource CustomErrorControlOnErrorStyle}" />
                     </StackPanel>
 
-                    <StackPanel>
+                    <StackPanel Margin="0,0,0,20">
                         <Label Content="Horario de Execução" />
-                        <!--<TextBox x:Name="Horario" Height="30" Text="{ Binding Horario }" />-->
-                        <xctk:MaskedTextBox x:Name="Horario" Mask="00:00" Text="{ Binding Horario }" />
+                        <xctk:MaskedTextBox x:Name="Horario" Mask="00:00" Text="{ Binding Horario, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True  }" Style="{StaticResource CustomErrorControlOnErrorStyle}" />
                     </StackPanel>
 
                     <Border Padding="10" Margin="0,30,0,0" BorderBrush="#FF9E9E9E" BorderThickness="1,1,1,1">

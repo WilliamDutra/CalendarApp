@@ -11,7 +11,7 @@ using CalendarApp.Models.ValueObjects;
 
 namespace CalendarApp.UI.ViewModels
 {
-    public class FrmCriarAgendamentoViewModel : ViewModelBase
+    public class FrmCriarAgendamentoViewModel : ViewModelBase, IDataErrorInfo
     {
 
         private readonly CadastroAgendamentoValidator _AgendamentoValidator;
@@ -126,6 +126,39 @@ namespace CalendarApp.UI.ViewModels
             novoAgendamento.Descricao = Descricao;
 
             agendamento.Salvar(novoAgendamento);
+        }
+
+
+        public string Error 
+        {
+            get
+            {
+                if(_AgendamentoValidator != null)
+                {
+                    var Resultado = _AgendamentoValidator.Validate(this);
+
+                    if (Resultado != null && Resultado.Errors.Any())
+                    {
+                        var Errors = string.Join(Environment.NewLine, Resultado.Errors.Select(x => x.ErrorMessage).ToArray());
+                        return Errors;
+                    }
+                }
+
+                return string.Empty;
+
+            }
+        }
+
+        public string this[string columnName]
+        {
+            get
+            {
+                var Erro = _AgendamentoValidator.Validate(this).Errors.FirstOrDefault(x => x.PropertyName == columnName);
+                if (Erro != null)
+                    return _AgendamentoValidator != null ? Erro.ErrorMessage : "";
+
+                return string.Empty;
+            }
         }
 
     }
