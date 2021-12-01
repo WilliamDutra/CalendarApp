@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using CalendarApp.Models.ValueObjects;
+using System.Collections.ObjectModel;
 
 namespace CalendarApp.UI.ViewModels
 {
@@ -22,6 +23,7 @@ namespace CalendarApp.UI.ViewModels
         public FrmCriarAgendamentoViewModel()
         {
             _AgendamentoValidator = new CadastroAgendamentoValidator();
+            DiasDaSemana = CarregarDias();
             SalvarCommand = new Command(Salvar);
         }
 
@@ -111,10 +113,56 @@ namespace CalendarApp.UI.ViewModels
             }
         }
 
+        private DateTime _De;
+
+        public DateTime De
+        {
+            set
+            {
+                SetProperty(ref _De, value);
+            }
+            get
+            {
+                return _De;
+            }
+        }
+
+        private DateTime _Ate;
+
+        public DateTime Ate 
+        {
+            get
+            {
+                return _Ate;
+            }
+            set
+            {
+                SetProperty(ref _Ate, value);
+            }
+        }
+
+        private ObservableCollection<DiasDaSemana> _DiasDaSemana;
+
+        public ObservableCollection<DiasDaSemana> DiasDaSemana
+        {
+            set
+            {
+                SetProperty(ref _DiasDaSemana, value);
+            }
+            get
+            {
+                return _DiasDaSemana;
+            }
+        }
+
+
         #endregion
 
         private void Salvar()
         {
+
+            var DiasSelecionados = DiasDaSemana.Where(x => x.IsChecked == true)
+                                               .ToList();
 
             var agendamento = CalendarApp.App.Startup.Container.GetService<IAgendamento>();
             var novoAgendamento = new CadastrarAgendamento();
@@ -128,6 +176,47 @@ namespace CalendarApp.UI.ViewModels
             agendamento.Salvar(novoAgendamento);
         }
 
+        private ObservableCollection<DiasDaSemana> CarregarDias()
+        {
+            return new ObservableCollection<DiasDaSemana>()
+            {
+                new DiasDaSemana
+                {
+                    Id = 0,
+                    Nome = "Domingo"
+                },
+                new DiasDaSemana
+                {
+                    Id = 1,
+                    Nome = "Segunda-Feira"
+                },
+                new DiasDaSemana
+                {
+                    Id = 2,
+                    Nome = "Terça-Feira"
+                },
+                new DiasDaSemana
+                {
+                    Id = 3,
+                    Nome = "Quarta-Feira"
+                },
+                new DiasDaSemana
+                {
+                    Id = 4,
+                    Nome = "Quinta-Feira"
+                },
+                new DiasDaSemana
+                {
+                    Id = 5,
+                    Nome = "Sexta-Feira"
+                },
+                new DiasDaSemana
+                {
+                    Id = 6,
+                    Nome = "Sábado"
+                },
+            };
+        }
 
         public string Error 
         {
@@ -160,6 +249,8 @@ namespace CalendarApp.UI.ViewModels
                 return string.Empty;
             }
         }
+
+
 
     }
 }

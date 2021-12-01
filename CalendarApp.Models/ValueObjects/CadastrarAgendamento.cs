@@ -18,5 +18,11 @@ namespace CalendarApp.Models.ValueObjects
 
         public bool Executavel { get; set; }
 
+        public List<DiasDaSemana> DiasDaSemana { get; set; }
+
+        public DateTime De { get; set; }
+
+        public DateTime Ate { get; set; }
+
     }
 }
