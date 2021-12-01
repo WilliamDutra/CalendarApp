@@ -1,6 +1,7 @@
 ﻿using CalendarApp.Domain.Interfaces;
 using CalendarApp.Infra.Interfaces;
 using CalendarApp.Models.Entidades;
+using CalendarApp.Models.ValueObjects;
 using Dapper;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,24 @@ namespace CalendarApp.Domain.Repositorios
         public Execucao Alterar(Execucao execucao)
         {
             throw new NotImplementedException();
+        }
+
+        public List<ExecucaoAgendamento> Listar()
+        {
+            try
+            {
+                using (var Db = _Conexao.AbrirConexao())
+                {
+                    return Db.Query<ExecucaoAgendamento>("spListarExecucaoAgendamento", commandType: CommandType.StoredProcedure)
+                             .ToList();
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public int Salvar(Execucao execucao)

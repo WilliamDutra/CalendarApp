@@ -45,7 +45,7 @@
     <Grid>
         <StackPanel Margin="10">
             <Border Padding="0,10,0,10">
-                <StackPanel>
+                <StackPanel HorizontalAlignment="Center">
 
                     <StackPanel Margin="0,0,0,20">
                         <Label Content="Nome"/>

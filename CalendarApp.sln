@@ -27,6 +27,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Procedures", "Procedures", 
 		spAlterarComando.sql = spAlterarComando.sql
 		spListarAgendamento.sql = spListarAgendamento.sql
 		spListarComando.sql = spListarComando.sql
+		spListarExecucaoAgendamento.sql = spListarExecucaoAgendamento.sql
 		spSalvarAgendamento.sql = spSalvarAgendamento.sql
 		spSalvarComando.sql = spSalvarComando.sql
 		spSalvarExecucao.sql = spSalvarExecucao.sql
@@ -39,7 +40,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tables", "Tables", "{589B00
 		Execucao.sql = Execucao.sql
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalendarApp.UI", "CalendarApp.UI\CalendarApp.UI.csproj", "{8B012E6F-30D2-4C7F-897B-9B6C70905FDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalendarApp.UI", "CalendarApp.UI\CalendarApp.UI.csproj", "{8B012E6F-30D2-4C7F-897B-9B6C70905FDA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

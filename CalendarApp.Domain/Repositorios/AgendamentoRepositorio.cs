@@ -30,7 +30,7 @@ namespace CalendarApp.Domain.Repositorios
             {
                 using (var Db = _Conexao.AbrirConexao())
                 {
-                    return Db.Query<Agendamento>("")
+                    return Db.Query<Agendamento>("spListarAgendamento")
                              .ToList();
                 }
             }

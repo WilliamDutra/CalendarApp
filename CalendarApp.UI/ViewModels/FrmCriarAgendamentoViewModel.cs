@@ -172,6 +172,9 @@ namespace CalendarApp.UI.ViewModels
             novoAgendamento.Horario = Horario;
             novoAgendamento.NomeComando = NomeComando;
             novoAgendamento.Descricao = Descricao;
+            novoAgendamento.DiasDaSemana = DiasSelecionados;
+            novoAgendamento.De = De;
+            novoAgendamento.Ate = Ate;
 
             agendamento.Salvar(novoAgendamento);
         }

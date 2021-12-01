@@ -1,0 +1,30 @@
+﻿IF OBJECT_ID('spListarExecucaoAgendamento') IS NOT NULL
+	DROP PROCEDURE spListarExecucaoAgendamento
+GO
+CREATE PROCEDURE spListarExecucaoAgendamento (
+	@ID INT = NULL,
+	@NOME VARCHAR(100) = NULL,
+	@DESCRICAO VARCHAR(255) = NULL
+)
+AS
+	BEGIN
+	
+		SELECT 
+			EXECUCAO.AgendamentoId,
+			EXECUCAO.Data,
+			EXECUCAO.AtualizadoEm,
+			AGENDAMENTO.Nome,
+			AGENDAMENTO.Descricao,
+			AGENDAMENTO.Id
+		FROM 
+			Agendamento AGENDAMENTO
+		INNER JOIN
+			Execucao EXECUCAO
+		ON
+			AGENDAMENTO.Id = EXECUCAO.AgendamentoId
+		WHERE
+			AGENDAMENTO.Nome 	  	 = ISNULL(@NOME, AGENDAMENTO.Nome) AND
+			AGENDAMENTO.Descricao 	 = ISNULL(@DESCRICAO, AGENDAMENTO.Descricao) AND
+			AGENDAMENTO.Id			 = ISNULL(@ID, AGENDAMENTO.Id)
+		
+	END

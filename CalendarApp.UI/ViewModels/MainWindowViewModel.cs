@@ -15,6 +15,7 @@ namespace CalendarApp.UI.ViewModels
         public MainWindowViewModel()
         {
             Cadastrar = new Command(() => new FrmCriarAgendamento().ShowDialog());
+            Visualizar = new Command(() => new FrmListarAgendamento().ShowDialog());
         }
 
     }
