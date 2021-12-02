@@ -3,6 +3,7 @@ using CalendarApp.App.Services;
 using CalendarApp.Domain.Interfaces;
 using CalendarApp.Domain.Repositorios;
 using CalendarApp.Infra;
+using CalendarApp.Infra.Helpers;
 using CalendarApp.Infra.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -20,6 +21,8 @@ namespace CalendarApp.App
             var service = serviceCollection;
 
             service.AddScoped<IConexao, Conexao>((Conn) => new Conexao("Server=127.0.0.1,1433; Database=CalendarApp; User Id=sa; Password=yourStrong(!)Password"));
+            service.AddScoped<IPrompt, PromptHelper>();
+
             service.AddScoped<IAgendamentoRepositorio, AgendamentoRepositorio>();
             service.AddScoped<IExecucaoRepositorio, ExecucaoRepositorio>();
             service.AddScoped<IComandoRepositorio, ComandoRepositorio>();
