@@ -32,7 +32,7 @@ namespace CalendarApp.App
                 {
                     var args1 = agendamento.Argumento.Split(' ');
 
-                    prompt.Run(agendamento.Caminho, args1, agendamento.Data);
+                    prompt.Run(agendamento.Caminho,agendamento.Nome, args1, agendamento.Horario);
                 }
 
                 //prompt.Run(@"C:\Users\willd\Desktop\Tese\contador.bat", ConsoleWrite);

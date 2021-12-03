@@ -18,6 +18,8 @@ namespace CalendarApp.Models.ValueObjects
 
         public DateTime Data { get; set; }
 
+        public DateTime Horario { get; set; }
+
         public DateTime AtualizadoEm { get; set; }
 
         public string Descricao { get; set; }

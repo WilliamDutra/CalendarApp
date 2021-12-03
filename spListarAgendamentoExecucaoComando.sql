@@ -12,10 +12,11 @@ AS
 		SELECT 
 			COMANDO.Caminho,
 			COMANDO.Argumento,
+			COMANDO.Nome,
 			EXECUCAO.AgendamentoId,
-			EXECUCAO.Data,
+			AGENDAMENTO.Horario,
+			Execucao.Data,
 			EXECUCAO.AtualizadoEm,
-			AGENDAMENTO.Nome,
 			AGENDAMENTO.Descricao,
 			AGENDAMENTO.Id
 		FROM 

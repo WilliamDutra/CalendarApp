@@ -63,20 +63,21 @@ namespace CalendarApp.Infra.Helpers
             throw new NotImplementedException();
         }
 
-        public void Run(string Path, string[] Args, DateTime DataExecucao)
+        public void Run(string Path, string NomeArquivo, string[] Args, DateTime DataExecucao)
         {
             try
             {
-                if (DataExecucao == DateTime.Now)
+                if (Tolerancia((double)5, DataExecucao))
                 {
 
                     ProcessStartInfo info = new ProcessStartInfo();
                     info.UseShellExecute = false;
-                    
+                    info.WorkingDirectory = Path;
                     info.FileName = Path;
-                    info.Arguments = "C:\\Windows " + PercorreArgumentos(Args);
+                    info.Arguments = PercorreArgumentos(Args);
 
                     Process start = new Process();
+                    
                     start.StartInfo = info;
                     start.Start();
 
@@ -123,6 +124,13 @@ namespace CalendarApp.Infra.Helpers
 
             return Argumento.ToString();
 
+        }
+
+        private bool Tolerancia(double Minuto, DateTime Data)
+        {
+            if (Data <= DateTime.Now.AddMinutes(Minuto) && Data >= DateTime.Now.AddMinutes(-Minuto))
+                return true;
+            return false;
         }
 
     }
