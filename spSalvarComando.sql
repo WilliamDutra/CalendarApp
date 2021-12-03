@@ -5,6 +5,7 @@ CREATE PROCEDURE spSalvarComando (
 	@NOME VARCHAR(100),
 	@DESCRICAO VARCHAR(255) = NULL,
 	@CAMINHO VARCHAR(255),
+	@ARGUMENTO VARCHAR(255) = NULL,
 	@EXECUTAVEL BIT,
 	@CADASTRADOEM DATETIME,
 	@ATUALIZADOEM DATETIME
@@ -18,6 +19,7 @@ AS
 			Nome,
 			Descricao,
 			Caminho,
+			Argumento,
 			Executavel,
 			CadastradoEm,
 			AtualizadoEm
@@ -27,6 +29,7 @@ AS
 			@NOME,
 			@DESCRICAO,
 			@CAMINHO,
+			@ARGUMENTO,
 			@EXECUTAVEL,
 			@CADASTRADOEM,
 			@ATUALIZADOEM

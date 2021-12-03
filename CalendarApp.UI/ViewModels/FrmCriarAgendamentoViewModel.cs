@@ -99,6 +99,20 @@ namespace CalendarApp.UI.ViewModels
             }
         }
 
+        private string _Argumento;
+
+        public string Argumento 
+        {
+            get
+            {
+                return _Argumento;
+            }
+            set
+            {
+                SetProperty(ref _Argumento, value);
+            }
+        }
+
         private bool _Executavel;
 
         public bool Executavel
@@ -167,6 +181,7 @@ namespace CalendarApp.UI.ViewModels
             var agendamento = CalendarApp.App.Startup.Container.GetService<IAgendamento>();
             var novoAgendamento = new CadastrarAgendamento();
             novoAgendamento.Comando = Comando;
+            novoAgendamento.Argumento = Argumento;
             novoAgendamento.Executavel = Executavel;
             novoAgendamento.Nome = Nome;
             novoAgendamento.Horario = Horario;

@@ -10,7 +10,7 @@ namespace CalendarApp.App.Interfaces
     {
         int Salvar(CadastrarAgendamento agendamento);
 
-
+        List<AgendamentoExecucaoComando> ListarAgendamentoParaExecucao();
 
     }
 }

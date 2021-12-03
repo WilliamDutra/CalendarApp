@@ -16,6 +16,8 @@ namespace CalendarApp.Models.ValueObjects
 
         public string Comando { get; set; }
 
+        public string Argumento { get; set; }
+
         public bool Executavel { get; set; }
 
         public List<DiasDaSemana> DiasDaSemana { get; set; }

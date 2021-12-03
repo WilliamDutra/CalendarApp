@@ -36,8 +36,9 @@ namespace CalendarApp.Domain.Repositorios
                     Parametros.Add("@DESCRICAO", comando.Descricao);
                     Parametros.Add("@CAMINHO", comando.Caminho);
                     Parametros.Add("@EXECUTAVEL", comando.Executavel);
-                    Parametros.Add("@CADASTRADOEM", DateTime.Now);
-                    Parametros.Add("@ATUALIZADOEM", DateTime.Now);
+                    Parametros.Add("@ARGUMENTO", comando.Argumento);
+                    Parametros.Add("@CADASTRADOEM", comando.CadastroEm);
+                    Parametros.Add("@ATUALIZADOEM", comando.AtualizadoEm);
 
                     return Db.Query<int>("spSalvarComando", Parametros, commandType: CommandType.StoredProcedure)
                              .FirstOrDefault();

@@ -55,8 +55,8 @@ namespace CalendarApp.Domain.Repositorios
                     Parametros.Add("@IDAGENDAMENTO", execucao.AgendamentoId);
                     Parametros.Add("@IDCOMANDO", execucao.ComandoId);
                     Parametros.Add("@DATA", execucao.Data);
-                    Parametros.Add("@CADASTRADOEM", DateTime.Now);
-                    Parametros.Add("@ATUALIZADOEM", DateTime.Now);
+                    Parametros.Add("@CADASTRADOEM", execucao.CadastradoEm);
+                    Parametros.Add("@ATUALIZADOEM", execucao.AtualizadoEm);
 
                     return Db.Query<int>("spSalvarExecucao", Parametros, commandType: CommandType.StoredProcedure)
                             .FirstOrDefault();

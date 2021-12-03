@@ -21,12 +21,21 @@ namespace CalendarApp.App
 
                 var serviceCollection = new ServiceCollection();
                 Startup.Register(serviceCollection);
-                //var age = Startup.Container.GetService<IAgendamento>();
+                var age = Startup.Container.GetService<IAgendamento>();
                 //var exe = Startup.Container.GetService<IExecucao>();
                 //var cmd = Startup.Container.GetService<IComando>();
                 var prompt = Startup.Container.GetService<IPrompt>();
 
-                prompt.Run(@"C:\Users\willd\Desktop\Tese\contador.bat", ConsoleWrite);
+                var agendamentos = age.ListarAgendamentoParaExecucao();
+
+                foreach (var agendamento in agendamentos)
+                {
+                    var args1 = agendamento.Argumento.Split(' ');
+
+                    prompt.Run(agendamento.Caminho, args1, agendamento.Data);
+                }
+
+                //prompt.Run(@"C:\Users\willd\Desktop\Tese\contador.bat", ConsoleWrite);
 
 
             }catch(Exception ex)

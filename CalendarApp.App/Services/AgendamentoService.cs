@@ -25,6 +25,20 @@ namespace CalendarApp.App.Services
             _ComandoService = ComandoService;
         }
 
+        public List<AgendamentoExecucaoComando> ListarAgendamentoParaExecucao()
+        {
+            try
+            {
+                var pesquisa = new Agendamento();
+                return _AgendamentoRepositorio.Listar(pesquisa);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public int Salvar(CadastrarAgendamento agendamento)
         {
             try
@@ -55,6 +69,7 @@ namespace CalendarApp.App.Services
                     cmd.Nome = agendamento.NomeComando;
                     cmd.Executavel = agendamento.Executavel;
                     cmd.Caminho = agendamento.Comando;
+                    cmd.Argumento = agendamento.Argumento;
                     idComando = _ComandoService.Salvar(cmd);
 
                     // Percorre a diferença de dias entre o periodo "De" "Ate"

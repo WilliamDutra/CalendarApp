@@ -26,6 +26,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Procedures", "Procedures", 
 		spAlterarAgendamento.sql = spAlterarAgendamento.sql
 		spAlterarComando.sql = spAlterarComando.sql
 		spListarAgendamento.sql = spListarAgendamento.sql
+		spListarAgendamentoExecucaoComando.sql = spListarAgendamentoExecucaoComando.sql
 		spListarComando.sql = spListarComando.sql
 		spListarExecucaoAgendamento.sql = spListarExecucaoAgendamento.sql
 		spSalvarAgendamento.sql = spSalvarAgendamento.sql
@@ -41,6 +42,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tables", "Tables", "{589B00
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalendarApp.UI", "CalendarApp.UI\CalendarApp.UI.csproj", "{8B012E6F-30D2-4C7F-897B-9B6C70905FDA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalendarApp.CLI", "CalendarApp.CLI\CalendarApp.CLI.csproj", "{6B69C8FB-AD0B-4BAF-BB32-23C5A3113266}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -68,6 +71,10 @@ Global
 		{8B012E6F-30D2-4C7F-897B-9B6C70905FDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B012E6F-30D2-4C7F-897B-9B6C70905FDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B012E6F-30D2-4C7F-897B-9B6C70905FDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B69C8FB-AD0B-4BAF-BB32-23C5A3113266}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B69C8FB-AD0B-4BAF-BB32-23C5A3113266}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B69C8FB-AD0B-4BAF-BB32-23C5A3113266}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B69C8FB-AD0B-4BAF-BB32-23C5A3113266}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,6 +87,7 @@ Global
 		{121218CF-CEB7-4A03-8F77-DF6029895ECA} = {EFBCB0EB-3B31-4930-B551-8432254B3C78}
 		{589B0088-E08A-4974-8C20-57C93F937222} = {EFBCB0EB-3B31-4930-B551-8432254B3C78}
 		{8B012E6F-30D2-4C7F-897B-9B6C70905FDA} = {47A9923A-A980-433A-A6AB-B6D2CF360991}
+		{6B69C8FB-AD0B-4BAF-BB32-23C5A3113266} = {47A9923A-A980-433A-A6AB-B6D2CF360991}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {939F9B19-C87E-4D46-A1C5-172E766855DB}

@@ -63,6 +63,32 @@ namespace CalendarApp.Infra.Helpers
             throw new NotImplementedException();
         }
 
+        public void Run(string Path, string[] Args, DateTime DataExecucao)
+        {
+            try
+            {
+                if (DataExecucao == DateTime.Now)
+                {
+
+                    ProcessStartInfo info = new ProcessStartInfo();
+                    info.UseShellExecute = false;
+                    
+                    info.FileName = Path;
+                    info.Arguments = "C:\\Windows " + PercorreArgumentos(Args);
+
+                    Process start = new Process();
+                    start.StartInfo = info;
+                    start.Start();
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public void Run(string Path, Action<object, DataReceivedEventArgs> Output)
         {
             try
@@ -85,5 +111,19 @@ namespace CalendarApp.Infra.Helpers
                 throw;
             }
         }
+
+        private string PercorreArgumentos(string[] Args)
+        {
+            StringBuilder Argumento = new StringBuilder();
+
+            foreach (var args in Args)
+            {
+                Argumento.Append(" " + args + " ");
+            }
+
+            return Argumento.ToString();
+
+        }
+
     }
 }
