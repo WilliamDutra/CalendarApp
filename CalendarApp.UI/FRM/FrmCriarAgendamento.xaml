@@ -8,7 +8,7 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:osb="clr-namespace:Xceed.Wpf.Toolkit.Obselete;assembly=WPFToolkit.Extended"
         xmlns:System="clr-namespace:System;assembly=mscorlib"
-        Title="Criar Agendamento" Height="800" Width="400">
+        Title="Criar Agendamento" Height="700" Width="400" ResizeMode="NoResize">
 
 
     <Window.Resources>
@@ -43,71 +43,80 @@
 
 
     <Grid>
-        <StackPanel Margin="10">
-            <Border Padding="0,10,0,10">
-                <StackPanel HorizontalAlignment="Center">
 
-                    <StackPanel Margin="0,0,0,20">
-                        <Label Content="Nome"/>
-                        <TextBox x:Name="Nome" Height="30" Text="{ Binding Nome, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True  }" Style="{StaticResource CustomErrorControlOnErrorStyle}" />
-                    </StackPanel>
+        <ScrollViewer>
+            <StackPanel Margin="10">
 
-                    <StackPanel Margin="0,0,0,20">
-                        <Label Content="Descrição" />
-                        <TextBox x:Name="Descricao" Height="100" Text="{ Binding Descricao, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True  }" Style="{StaticResource CustomErrorControlOnErrorStyle}" />
-                    </StackPanel>
+                <Border Padding="0,10,0,10">
+                    <StackPanel HorizontalAlignment="Center">
 
-                    <StackPanel Margin="0,0,0,20">
-                        <Label Content="Horario de Execução" />
-                        <xctk:MaskedTextBox Height="30" x:Name="Horario" Mask="00:00" Text="{ Binding Horario, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True  }" Style="{StaticResource CustomErrorControlOnErrorStyle}" />
-                    </StackPanel>
-
-                    <StackPanel Margin="0,10,0,2" Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Label Content="De" />
-                        <DatePicker SelectedDate="{ Binding De }" DisplayDate="{ x:Static System:DateTime.Now }" Width="150"></DatePicker>
-                        <Label Content="Até" />
-                        <DatePicker SelectedDate="{ Binding Ate }"  DisplayDate="{ x:Static System:DateTime.Now }" Width="150"></DatePicker>
-                    </StackPanel>
-
-                    <ListBox Height="60" x:Name="Dias" ItemsSource="{ Binding DiasDaSemana }" Margin="0,10,0,10" >
-
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <CheckBox x:Name="Semana" Content="{Binding Nome }" IsChecked="{ Binding IsChecked }"/>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                        
-                        
-                    </ListBox>
-
-                    <Border Padding="10" Margin="0,10,0,0" BorderBrush="#FF9E9E9E" BorderThickness="1,1,1,1">
-                        <StackPanel>
-                            <StackPanel>
-                                <Label Content="Associar um Comando" />
-                            </StackPanel>
-                            <StackPanel>
-                                <Label Content="Nome" />
-                                <TextBox x:Name="NomeComando" Text="{ Binding NomeComando }" Height="30" />
-                            </StackPanel>
-                            <StackPanel>
-                                <Label Content="Comando" />
-                                <TextBox x:Name="Comando" Text="{ Binding Comando }" Height="30" />
-                            </StackPanel>
-                            <StackPanel>
-                                <Label Content="Argumentos" />
-                                <TextBox x:Name="Argumento" Text="{ Binding Argumento }" Height="30" />
-                            </StackPanel>
-                            <StackPanel Margin="0,10,0,0">
-                                <CheckBox IsChecked="{ Binding Executavel }" Content="É executavel"/>
-                            </StackPanel>
+                        <StackPanel Margin="0,0,0,20">
+                            <Label Content="Nome"/>
+                            <TextBox x:Name="Nome" Height="30" Text="{ Binding Nome, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True  }" Style="{StaticResource CustomErrorControlOnErrorStyle}" />
                         </StackPanel>
-                    </Border>
 
-                </StackPanel>
-            </Border>
-            <Border Padding="10" >
-                <Button Height="30" Content="Salvar" Command="{ Binding SalvarCommand }" ></Button>
-            </Border>
-        </StackPanel>
+                        <StackPanel Margin="0,0,0,20">
+                            <Label Content="Descrição" />
+                            <TextBox x:Name="Descricao" Height="100" Text="{ Binding Descricao, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True  }" Style="{StaticResource CustomErrorControlOnErrorStyle}" />
+                        </StackPanel>
+
+                        <StackPanel Margin="0,0,0,20">
+                            <Label Content="Horario de Execução" />
+                            <xctk:MaskedTextBox Height="30" x:Name="Horario" Mask="00:00" Text="{ Binding Horario, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True  }" Style="{StaticResource CustomErrorControlOnErrorStyle}" />
+                        </StackPanel>
+
+                        <StackPanel Margin="0,10,0,2" Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Label Content="De" />
+                            <DatePicker SelectedDate="{ Binding De }" DisplayDate="{ x:Static System:DateTime.Now }" Width="150"></DatePicker>
+                            <Label Content="Até" />
+                            <DatePicker SelectedDate="{ Binding Ate }"  DisplayDate="{ x:Static System:DateTime.Now }" Width="150"></DatePicker>
+                        </StackPanel>
+
+                        <ListBox Height="60" x:Name="Dias" ItemsSource="{ Binding DiasDaSemana }" Margin="0,10,0,10" >
+
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <CheckBox x:Name="Semana" Content="{Binding Nome }" IsChecked="{ Binding IsChecked }"/>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+
+
+                        </ListBox>
+
+                        <Border Padding="10" Margin="0,10,0,0" BorderBrush="#FF9E9E9E" BorderThickness="1,1,1,1">
+                            <StackPanel>
+                                <StackPanel>
+                                    <Label Content="Associar um Comando" />
+                                </StackPanel>
+                                <StackPanel>
+                                    <Label Content="Nome" />
+                                    <TextBox x:Name="NomeComando" Text="{ Binding NomeComando }" Height="30" />
+                                </StackPanel>
+                                <StackPanel>
+                                    <Label Content="Comando" />
+                                    <TextBox x:Name="Comando" Text="{ Binding Comando }" Height="30" />
+                                </StackPanel>
+                                <StackPanel>
+                                    <Label Content="Argumentos" />
+                                    <TextBox x:Name="Argumento" Text="{ Binding Argumento }" Height="30" />
+                                </StackPanel>
+                                <StackPanel Margin="0,10,0,0">
+                                    <CheckBox IsChecked="{ Binding Executavel }" Content="É executavel"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+
+                    </StackPanel>
+                </Border>
+
+                <Separator />
+
+                <Border Padding="10" >
+                    <Button Height="30" Content="Salvar" Command="{ Binding SalvarCommand }" ></Button>
+                </Border>
+
+            </StackPanel>
+        </ScrollViewer>
+
     </Grid>
 </Window>
