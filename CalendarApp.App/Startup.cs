@@ -22,6 +22,7 @@ namespace CalendarApp.App
 
             service.AddScoped<IConexao, Conexao>((Conn) => new Conexao("Server=127.0.0.1,1433; Database=CalendarApp; User Id=sa; Password=yourStrong(!)Password"));
             service.AddScoped<IPrompt, PromptHelper>();
+            service.AddScoped<IToast, ToastHelper>();
 
             service.AddScoped<IAgendamentoRepositorio, AgendamentoRepositorio>();
             service.AddScoped<IExecucaoRepositorio, ExecucaoRepositorio>();
