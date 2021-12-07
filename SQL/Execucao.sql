@@ -6,6 +6,8 @@ CREATE TABLE Execucao (
 	AgendamentoId INT,
 	ComandoId INT,
 	Data DATETIME,
+	MensagemRetorno VARCHAR(255) NULL,
+	Executado BIT NULL,
 	CadastradoEm DATETIME,
 	AtualizadoEm DATETIME
 )

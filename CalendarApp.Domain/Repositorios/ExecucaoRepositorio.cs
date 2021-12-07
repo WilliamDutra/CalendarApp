@@ -23,7 +23,47 @@ namespace CalendarApp.Domain.Repositorios
 
         public Execucao Alterar(Execucao execucao)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var Db = _Conexao.AbrirConexao())
+                {
+                    DynamicParameters Parametros = new DynamicParameters();
+
+                    if(execucao.AgendamentoId > 0)
+                        Parametros.Add("@IDAGENDAMENTO", execucao.AgendamentoId, DbType.Int32);
+                    else
+                        Parametros.Add("@IDAGENDAMENTO", DBNull.Value, DbType.Int32);
+
+                    if(execucao.ComandoId > 0)
+                        Parametros.Add("@IDCOMANDO", execucao.ComandoId, DbType.Int32);
+                    else
+                        Parametros.Add("@IDCOMANDO", DBNull.Value, DbType.Int32);
+
+                    if(execucao.Data <= DateTime.MaxValue && execucao.Data >= DateTime.MinValue)
+                        Parametros.Add("@DATA", execucao.Data, DbType.DateTime);
+                    else
+                        Parametros.Add("@DATA", DBNull.Value, DbType.DateTime);
+
+                    if(execucao.Executado.HasValue)
+                        Parametros.Add("@EXECUTADO", execucao.Executado, DbType.Boolean);
+                    else
+                        Parametros.Add("@EXECUTADO", DBNull.Value, DbType.Boolean);
+
+                    if (execucao.AtualizadoEm <= DateTime.MaxValue && execucao.AtualizadoEm >= DateTime.MinValue)
+                        Parametros.Add("@ATUALIZADOEM", execucao.AtualizadoEm, DbType.DateTime);
+                    else
+                        Parametros.Add("@ATUALIZADOEM", DBNull.Value, DbType.DateTime);
+
+                    Db.Query("spAlterarExecucao", Parametros, commandType: CommandType.StoredProcedure);
+
+                    return execucao;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public List<ExecucaoAgendamento> Listar()
@@ -52,17 +92,18 @@ namespace CalendarApp.Domain.Repositorios
                 {
                     DynamicParameters Parametros = new DynamicParameters();
 
-                    Parametros.Add("@IDAGENDAMENTO", execucao.AgendamentoId);
-                    Parametros.Add("@IDCOMANDO", execucao.ComandoId);
-                    Parametros.Add("@DATA", execucao.Data);
-                    Parametros.Add("@CADASTRADOEM", execucao.CadastradoEm);
-                    Parametros.Add("@ATUALIZADOEM", execucao.AtualizadoEm);
+                    Parametros.Add("@IDAGENDAMENTO", execucao.AgendamentoId, DbType.Int32);
+                    Parametros.Add("@IDCOMANDO", execucao.ComandoId, DbType.Int32);
+                    Parametros.Add("@DATA", execucao.Data, DbType.DateTime);
+                    Parametros.Add("@EXECUTADO", execucao.Executado, DbType.Boolean);
+                    Parametros.Add("@CADASTRADOEM", execucao.CadastradoEm, DbType.DateTime);
+                    Parametros.Add("@ATUALIZADOEM", execucao.AtualizadoEm, DbType.DateTime);
 
                     return Db.Query<int>("spSalvarExecucao", Parametros, commandType: CommandType.StoredProcedure)
                             .FirstOrDefault();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw;

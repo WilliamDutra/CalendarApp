@@ -23,27 +23,30 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "09 - SQL", "09 - SQL", "{EF
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Procedures", "Procedures", "{121218CF-CEB7-4A03-8F77-DF6029895ECA}"
 	ProjectSection(SolutionItems) = preProject
-		spAlterarAgendamento.sql = spAlterarAgendamento.sql
-		spAlterarComando.sql = spAlterarComando.sql
-		spListarAgendamento.sql = spListarAgendamento.sql
-		spListarAgendamentoExecucaoComando.sql = spListarAgendamentoExecucaoComando.sql
-		spListarComando.sql = spListarComando.sql
-		spListarExecucaoAgendamento.sql = spListarExecucaoAgendamento.sql
-		spSalvarAgendamento.sql = spSalvarAgendamento.sql
-		spSalvarComando.sql = spSalvarComando.sql
-		spSalvarExecucao.sql = spSalvarExecucao.sql
+		SQL\spAlterarAgendamento.sql = SQL\spAlterarAgendamento.sql
+		SQL\spAlterarComando.sql = SQL\spAlterarComando.sql
+		spAlterarExecucao.sql = spAlterarExecucao.sql
+		SQL\spListarAgendamento.sql = SQL\spListarAgendamento.sql
+		SQL\spListarAgendamentoExecucaoComando.sql = SQL\spListarAgendamentoExecucaoComando.sql
+		SQL\spListarComando.sql = SQL\spListarComando.sql
+		SQL\spListarExecucaoAgendamento.sql = SQL\spListarExecucaoAgendamento.sql
+		SQL\spSalvarAgendamento.sql = SQL\spSalvarAgendamento.sql
+		SQL\spSalvarComando.sql = SQL\spSalvarComando.sql
+		SQL\spSalvarExecucao.sql = SQL\spSalvarExecucao.sql
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tables", "Tables", "{589B0088-E08A-4974-8C20-57C93F937222}"
 	ProjectSection(SolutionItems) = preProject
-		Agendamento.sql = Agendamento.sql
-		Comando.sql = Comando.sql
-		Execucao.sql = Execucao.sql
+		SQL\Agendamento.sql = SQL\Agendamento.sql
+		SQL\Comando.sql = SQL\Comando.sql
+		SQL\Execucao.sql = SQL\Execucao.sql
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalendarApp.UI", "CalendarApp.UI\CalendarApp.UI.csproj", "{8B012E6F-30D2-4C7F-897B-9B6C70905FDA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalendarApp.CLI", "CalendarApp.CLI\CalendarApp.CLI.csproj", "{6B69C8FB-AD0B-4BAF-BB32-23C5A3113266}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CLI", "CLI", "{00460307-5EFF-48BA-9C9C-169E5278AFA3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,7 +90,8 @@ Global
 		{121218CF-CEB7-4A03-8F77-DF6029895ECA} = {EFBCB0EB-3B31-4930-B551-8432254B3C78}
 		{589B0088-E08A-4974-8C20-57C93F937222} = {EFBCB0EB-3B31-4930-B551-8432254B3C78}
 		{8B012E6F-30D2-4C7F-897B-9B6C70905FDA} = {47A9923A-A980-433A-A6AB-B6D2CF360991}
-		{6B69C8FB-AD0B-4BAF-BB32-23C5A3113266} = {47A9923A-A980-433A-A6AB-B6D2CF360991}
+		{6B69C8FB-AD0B-4BAF-BB32-23C5A3113266} = {00460307-5EFF-48BA-9C9C-169E5278AFA3}
+		{00460307-5EFF-48BA-9C9C-169E5278AFA3} = {47A9923A-A980-433A-A6AB-B6D2CF360991}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {939F9B19-C87E-4D46-A1C5-172E766855DB}

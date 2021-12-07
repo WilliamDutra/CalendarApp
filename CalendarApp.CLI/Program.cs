@@ -18,6 +18,7 @@ namespace CalendarApp.CLI
                 var serviceCollection = new ServiceCollection();
                 Startup.Register(serviceCollection);
                 var age = Startup.Container.GetService<IAgendamento>();
+                var exec = Startup.Container.GetService<IExecucao>();
                 var prompt = Startup.Container.GetService<IPrompt>();
 
                 var agendamentos = age.ListarAgendamentoParaExecucao();
@@ -30,11 +31,14 @@ namespace CalendarApp.CLI
                         var args1 = agendamento.Argumento.Split(' ');
 
                         prompt.Run(agendamento.Caminho, agendamento.Nome, args1, agendamento.Horario);
+                        
 
                     }catch(Exception ex)
                     {
                         Console.WriteLine(ex);
                     }
+
+                    Console.WriteLine("Passou");
                 }
 
             }
@@ -42,6 +46,8 @@ namespace CalendarApp.CLI
             {
                 Console.WriteLine(ex);
             }
+
+            Console.ReadKey();
 
         }
     }

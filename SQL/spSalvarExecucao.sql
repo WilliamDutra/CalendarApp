@@ -5,6 +5,7 @@ CREATE PROCEDURE spSalvarExecucao (
 	@IDAGENDAMENTO INT,
 	@IDCOMANDO INT,
 	@DATA DATETIME,
+	@EXECUTADO BIT,
 	@CADASTRADOEM DATETIME,
 	@ATUALIZADOEM DATETIME
 )
@@ -17,6 +18,7 @@ AS
 			AgendamentoId,
 			ComandoId,
 			Data,
+			Executado,
 			CadastradoEm,
 			AtualizadoEm
 		)
@@ -25,6 +27,7 @@ AS
 			@IDAGENDAMENTO,
 			@IDCOMANDO,
 			@DATA,
+			@EXECUTADO,
 			@CADASTRADOEM,
 			@ATUALIZADOEM
 		)

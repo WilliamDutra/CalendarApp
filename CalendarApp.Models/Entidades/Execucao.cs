@@ -14,6 +14,10 @@ namespace CalendarApp.Models.Entidades
 
         public DateTime Data { get; set; }
 
+        public string MensagemRetorno { get; set; }
+
+        public bool? Executado { get; set; }
+
         public DateTime CadastradoEm { get; set; }
 
         public DateTime AtualizadoEm { get; set; }

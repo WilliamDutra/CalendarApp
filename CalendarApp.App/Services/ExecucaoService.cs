@@ -17,6 +17,19 @@ namespace CalendarApp.App.Services
             _ExecucaoRepositorio = ExcucaoRepositorio;
         }
 
+        public Execucao Alterar(Execucao execucao)
+        {
+            try
+            {
+                return _ExecucaoRepositorio.Alterar(execucao);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public List<ExecucaoAgendamento> ListarExecucoesAgendamento()
         {
             try

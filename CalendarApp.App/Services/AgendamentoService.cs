@@ -91,6 +91,7 @@ namespace CalendarApp.App.Services
                                 var exec = new Execucao();
                                 exec.AgendamentoId = idAgendamento;
                                 exec.ComandoId = idComando;
+                                exec.Executado = false;
                                 exec.CadastradoEm = DateTime.Now;
                                 exec.AtualizadoEm = DateTime.Now;
                                 exec.Data = DataExecucao;
@@ -122,6 +123,7 @@ namespace CalendarApp.App.Services
                     var exec = new Execucao();
                     exec.AgendamentoId = idAgendamento;
                     exec.ComandoId = idComando;
+                    exec.Executado = false;
                     exec.CadastradoEm = DateTime.Now;
                     exec.AtualizadoEm = DateTime.Now;
                     exec.Data = DateTime.Now;
