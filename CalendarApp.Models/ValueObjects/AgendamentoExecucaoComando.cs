@@ -8,6 +8,8 @@ namespace CalendarApp.Models.ValueObjects
     {
         public int Id { get; set; }
 
+        public int ExecucaoId { get; set; }
+
         public string Nome { get; set; }
 
         public string Comando { get; set; }

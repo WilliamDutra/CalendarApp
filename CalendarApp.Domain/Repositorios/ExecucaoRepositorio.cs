@@ -29,7 +29,12 @@ namespace CalendarApp.Domain.Repositorios
                 {
                     DynamicParameters Parametros = new DynamicParameters();
 
-                    if(execucao.AgendamentoId > 0)
+                    if(execucao.Id > 0)
+                        Parametros.Add("@ID", execucao.Id, DbType.Int32);
+                    else
+                        Parametros.Add("@ID", execucao.Id, DbType.Int32);
+
+                    if (execucao.AgendamentoId > 0)
                         Parametros.Add("@IDAGENDAMENTO", execucao.AgendamentoId, DbType.Int32);
                     else
                         Parametros.Add("@IDAGENDAMENTO", DBNull.Value, DbType.Int32);
@@ -39,7 +44,7 @@ namespace CalendarApp.Domain.Repositorios
                     else
                         Parametros.Add("@IDCOMANDO", DBNull.Value, DbType.Int32);
 
-                    if(execucao.Data <= DateTime.MaxValue && execucao.Data >= DateTime.MinValue)
+                    if(execucao.Data < DateTime.MaxValue && execucao.Data > DateTime.MinValue)
                         Parametros.Add("@DATA", execucao.Data, DbType.DateTime);
                     else
                         Parametros.Add("@DATA", DBNull.Value, DbType.DateTime);
@@ -49,7 +54,7 @@ namespace CalendarApp.Domain.Repositorios
                     else
                         Parametros.Add("@EXECUTADO", DBNull.Value, DbType.Boolean);
 
-                    if (execucao.AtualizadoEm <= DateTime.MaxValue && execucao.AtualizadoEm >= DateTime.MinValue)
+                    if (execucao.AtualizadoEm < DateTime.MaxValue && execucao.AtualizadoEm > DateTime.MinValue)
                         Parametros.Add("@ATUALIZADOEM", execucao.AtualizadoEm, DbType.DateTime);
                     else
                         Parametros.Add("@ATUALIZADOEM", DBNull.Value, DbType.DateTime);

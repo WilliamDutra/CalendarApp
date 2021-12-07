@@ -18,7 +18,8 @@ AS
 			Execucao.Data,
 			EXECUCAO.AtualizadoEm,
 			AGENDAMENTO.Descricao,
-			AGENDAMENTO.Id
+			AGENDAMENTO.Id,
+			EXECUCAO.Id AS 'ExecucaoId'
 		FROM 
 			Agendamento AGENDAMENTO
 		INNER JOIN

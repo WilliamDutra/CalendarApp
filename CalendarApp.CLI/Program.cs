@@ -1,6 +1,7 @@
 ﻿using CalendarApp.App;
 using CalendarApp.App.Interfaces;
 using CalendarApp.Infra.Interfaces;
+using CalendarApp.Models.Entidades;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 
@@ -21,24 +22,38 @@ namespace CalendarApp.CLI
                 var exec = Startup.Container.GetService<IExecucao>();
                 var prompt = Startup.Container.GetService<IPrompt>();
 
-                var agendamentos = age.ListarAgendamentoParaExecucao();
-
-                foreach (var agendamento in agendamentos)
+                while (true)
                 {
-                    try
+
+                    var agendamentos = age.ListarAgendamentoParaExecucao();
+
+                    foreach (var agendamento in agendamentos)
                     {
+                        try
+                        {
 
-                        var args1 = agendamento.Argumento.Split(' ');
+                            var args1 = agendamento.Argumento.Split(' ');
 
-                        prompt.Run(agendamento.Caminho, agendamento.Nome, args1, agendamento.Horario);
-                        
+                            bool isExecucao = prompt.Run(agendamento.Caminho, agendamento.Nome, args1, agendamento.Horario, agendamento.Data);
 
-                    }catch(Exception ex)
-                    {
-                        Console.WriteLine(ex);
+                            if (isExecucao)
+                            {
+                                var ex = new Execucao();
+                                ex.AtualizadoEm = DateTime.Now;
+                                ex.Executado = true;
+                                ex.Id = agendamento.ExecucaoId;
+                                exec.Alterar(ex);
+                                Console.WriteLine($"[{DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss")}] - AGENDAMENTO {agendamento.Nome.ToUpper()} EXECUTADO COM SUCESSO");
+                                break;
+                            }
+
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex);
+                        }
                     }
 
-                    Console.WriteLine("Passou");
                 }
 
             }

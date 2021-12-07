@@ -43,7 +43,7 @@ namespace CalendarApp.Infra.Helpers
                     throw new Exception("O caminho inserido não existe");
 
                 ProcessStartInfo info = new ProcessStartInfo();
-                info.UseShellExecute = false;
+                info.UseShellExecute = true;
                 info.FileName = Path;
 
                 Process start = new Process();
@@ -63,17 +63,19 @@ namespace CalendarApp.Infra.Helpers
             throw new NotImplementedException();
         }
 
-        public void Run(string Path, string NomeArquivo, string[] Args, DateTime DataExecucao)
+        public bool Run(string Path, string NomeArquivo, string[] Args, DateTime HorarioExecucao, DateTime DataExecucao)
         {
+            bool isExecutado = false;
+
             try
             {
-                if (Tolerancia((double)5, DataExecucao))
+                if (Tolerancia((double)5, HorarioExecucao) && ComparaData(DataExecucao, DateTime.Now))
                 {
 
                     ProcessStartInfo info = new ProcessStartInfo();
-                    info.UseShellExecute = false;
+                    info.UseShellExecute = true;
                     info.WorkingDirectory = Path;
-                    info.FileName = Path;
+                    info.FileName = NomeArquivo;
                     info.Arguments = PercorreArgumentos(Args);
 
                     Process start = new Process();
@@ -81,13 +83,17 @@ namespace CalendarApp.Infra.Helpers
                     start.StartInfo = info;
                     start.Start();
 
+                    isExecutado = true;
+
                 }
             }
             catch (Exception)
             {
-
-                throw;
+                //TODO : Colocar um log para capturar os erros
+                isExecutado = false; 
             }
+
+            return isExecutado;
         }
 
         public void Run(string Path, Action<object, DataReceivedEventArgs> Output)
@@ -131,6 +137,11 @@ namespace CalendarApp.Infra.Helpers
             if (Data <= DateTime.Now.AddMinutes(Minuto) && Data >= DateTime.Now.AddMinutes(-Minuto))
                 return true;
             return false;
+        }
+
+        private bool ComparaData(DateTime DataExecucao, DateTime DataVigente)
+        {
+            return DataExecucao.ToString("dd-MM-yyyy").Equals(DataVigente.ToString("dd-MM-yyyy"));
         }
 
     }

@@ -11,7 +11,7 @@ namespace CalendarApp.Infra.Interfaces
 
         void Run(string Path, string[] Args);
 
-        void Run(string Path, string NomeArquivo, string[] Args, DateTime DataExecucao);
+        bool Run(string Path, string NomeArquivo, string[] Args, DateTime HorarioExecucao, DateTime DataExecucao);
 
         void Run(string Path, Action<object, DataReceivedEventArgs> Output);
 
