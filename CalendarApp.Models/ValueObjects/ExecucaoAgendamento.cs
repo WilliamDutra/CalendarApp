@@ -12,9 +12,11 @@ namespace CalendarApp.Models.ValueObjects
 
         public string Descricao { get; set; }
 
-        public DateTime DataExecucao { get; set; }
+        public bool Executado { get; set; }
 
-        public DateTime HorarioExecucao { get; set; }
+        public DateTime Data { get; set; }
+
+        public DateTime Horario { get; set; }
 
         public DateTime AtualizadoEm { get; set; }
 

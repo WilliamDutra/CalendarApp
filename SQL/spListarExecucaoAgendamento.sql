@@ -13,6 +13,8 @@ AS
 			EXECUCAO.AgendamentoId,
 			EXECUCAO.Data,
 			EXECUCAO.AtualizadoEm,
+			EXECUCAO.Executado,
+			AGENDAMENTO.Horario,
 			AGENDAMENTO.Nome,
 			AGENDAMENTO.Descricao,
 			AGENDAMENTO.Id

@@ -67,9 +67,9 @@
 
                         <StackPanel Margin="0,10,0,2" Orientation="Horizontal" HorizontalAlignment="Center">
                             <Label Content="De" />
-                            <DatePicker SelectedDate="{ Binding De }" DisplayDate="{ x:Static System:DateTime.Now }" Width="150"></DatePicker>
+                            <DatePicker SelectedDate="{ Binding De }" DisplayDate="{ Binding DateTime.Now }"  Width="150"></DatePicker>
                             <Label Content="Até" />
-                            <DatePicker SelectedDate="{ Binding Ate }"  DisplayDate="{ x:Static System:DateTime.Now }" Width="150"></DatePicker>
+                            <DatePicker SelectedDate="{ Binding Ate }"  DisplayDate="{ Binding DateTime.Now }" Width="150"></DatePicker>
                         </StackPanel>
 
                         <ListBox Height="60" x:Name="Dias" ItemsSource="{ Binding DiasDaSemana }" Margin="0,10,0,10" >
