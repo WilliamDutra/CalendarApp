@@ -21,6 +21,7 @@ namespace CalendarApp.CLI
                 var age = Startup.Container.GetService<IAgendamento>();
                 var exec = Startup.Container.GetService<IExecucao>();
                 var prompt = Startup.Container.GetService<IPrompt>();
+                var toast = Startup.Container.GetService<IToast>();
 
                 while (true)
                 {
@@ -44,6 +45,7 @@ namespace CalendarApp.CLI
                                 ex.Id = agendamento.ExecucaoId;
                                 exec.Alterar(ex);
                                 Console.WriteLine($"[{DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss")}] - AGENDAMENTO {agendamento.Nome.ToUpper()} EXECUTADO COM SUCESSO");
+                                toast.ShowMessage("Sucesso", "Agendamento executado com sucesso!");
                                 break;
                             }
 

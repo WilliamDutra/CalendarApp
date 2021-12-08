@@ -11,10 +11,8 @@ namespace CalendarApp.Infra.Helpers
         public void ShowMessage(string Titulo, string Mensagem)
         {
             ToastContentBuilder builder = new ToastContentBuilder();
-            builder.AddArgument("action", "viewConversation")
-                   .AddArgument("conversationId", 9813)
-                   .AddText("Andrew sent you a picture")
-                   .AddText("Check this out, The Enchantments in Washington!")
+            builder.AddText(Titulo)
+                   .AddText(Mensagem)
                    .Show();
         }
     }

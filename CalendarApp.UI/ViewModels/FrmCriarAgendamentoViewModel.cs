@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using CalendarApp.Models.ValueObjects;
 using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace CalendarApp.UI.ViewModels
 {
@@ -174,24 +175,35 @@ namespace CalendarApp.UI.ViewModels
 
         private void Salvar()
         {
+            try
+            {
 
-            var DiasSelecionados = DiasDaSemana.Where(x => x.IsChecked == true)
-                                               .ToList();
+                var DiasSelecionados = DiasDaSemana.Where(x => x.IsChecked == true)
+                                                   .ToList();
 
-            var agendamento = CalendarApp.App.Startup.Container.GetService<IAgendamento>();
-            var novoAgendamento = new CadastrarAgendamento();
-            novoAgendamento.Comando = Comando;
-            novoAgendamento.Argumento = Argumento;
-            novoAgendamento.Executavel = Executavel;
-            novoAgendamento.Nome = Nome;
-            novoAgendamento.Horario = Horario;
-            novoAgendamento.NomeComando = NomeComando;
-            novoAgendamento.Descricao = Descricao;
-            novoAgendamento.DiasDaSemana = DiasSelecionados;
-            novoAgendamento.De = De;
-            novoAgendamento.Ate = Ate;
+                var agendamento = CalendarApp.App.Startup.Container.GetService<IAgendamento>();
+                var novoAgendamento = new CadastrarAgendamento();
+                novoAgendamento.Comando = Comando;
+                novoAgendamento.Argumento = Argumento;
+                novoAgendamento.Executavel = Executavel;
+                novoAgendamento.Nome = Nome;
+                novoAgendamento.Horario = Horario;
+                novoAgendamento.NomeComando = NomeComando;
+                novoAgendamento.Descricao = Descricao;
+                novoAgendamento.DiasDaSemana = DiasSelecionados;
+                novoAgendamento.De = De;
+                novoAgendamento.Ate = Ate;
 
-            agendamento.Salvar(novoAgendamento);
+                agendamento.Salvar(novoAgendamento);
+
+                var messageBox = Xceed.Wpf.Toolkit.MessageBox.Show("Agendamento feito com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+
+
+            }
+            catch (Exception ex)
+            {
+                var messageBox = Xceed.Wpf.Toolkit.MessageBox.Show($"Houve um erro ao realizar um agendamento: {ex}", "Erro", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         private ObservableCollection<DiasDaSemana> CarregarDias()
