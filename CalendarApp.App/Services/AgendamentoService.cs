@@ -116,6 +116,7 @@ namespace CalendarApp.App.Services
                     cmd.AtualizadoEm = DateTime.Now;
                     cmd.CadastroEm = DateTime.Now;
                     cmd.Nome = agendamento.NomeComando;
+                    cmd.Argumento = agendamento.Argumento;
                     cmd.Executavel = agendamento.Executavel;
                     cmd.Caminho = agendamento.Comando;
                     idComando = _ComandoService.Salvar(cmd);

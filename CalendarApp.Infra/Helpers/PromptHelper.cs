@@ -69,7 +69,7 @@ namespace CalendarApp.Infra.Helpers
 
             try
             {
-                if (Tolerancia((double)5, HorarioExecucao) && ComparaData(DataExecucao, DateTime.Now))
+                if (Tolerancia((double)2, HorarioExecucao) && ComparaData(DataExecucao, DateTime.Now))
                 {
 
                     ProcessStartInfo info = new ProcessStartInfo();
