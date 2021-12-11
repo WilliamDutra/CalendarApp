@@ -12,6 +12,8 @@ namespace CalendarApp.Models.ValueObjects
 
         public string Nome { get; set; }
 
+        public string NomeArquivo { get; set; }
+
         public string Comando { get; set; }
 
         public string Caminho { get; set; }

@@ -32,11 +32,12 @@ namespace CalendarApp.Domain.Repositorios
                 {
                     DynamicParameters Parametros = new DynamicParameters();
 
-                    Parametros.Add("@NOME", comando.Nome);
-                    Parametros.Add("@DESCRICAO", comando.Descricao);
-                    Parametros.Add("@CAMINHO", comando.Caminho);
-                    Parametros.Add("@EXECUTAVEL", comando.Executavel);
-                    Parametros.Add("@ARGUMENTO", comando.Argumento);
+                    Parametros.Add("@NOME", comando.Nome, DbType.String);
+                    Parametros.Add("@NOMEARQUIVO", comando.NomeArquivo, DbType.String);
+                    Parametros.Add("@DESCRICAO", comando.Descricao, DbType.String);
+                    Parametros.Add("@CAMINHO", comando.Caminho, DbType.String);
+                    Parametros.Add("@EXECUTAVEL", comando.Executavel, DbType.Boolean);
+                    Parametros.Add("@ARGUMENTO", comando.Argumento, DbType.String);
                     Parametros.Add("@CADASTRADOEM", comando.CadastroEm);
                     Parametros.Add("@ATUALIZADOEM", comando.AtualizadoEm);
 

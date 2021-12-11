@@ -45,6 +45,20 @@ namespace CalendarApp.UI.ViewModels
             }
         }
 
+        private string _NomeArquivo;
+
+        public string NomeArquivo 
+        {
+            get
+            {
+                return _NomeArquivo;
+            }
+            set
+            {
+                SetProperty(ref _NomeArquivo, value);
+            }
+        }
+
         private string _Descricao;
 
         public string Descricao
@@ -86,17 +100,17 @@ namespace CalendarApp.UI.ViewModels
             }
         }
 
-        private string _Comando;
+        private string _Caminho;
 
-        public string Comando
+        public string Caminho
         {
             get
             {
-                return _Comando;
+                return _Caminho;
             }
             set
             {
-                SetProperty(ref _Comando, value);
+                SetProperty(ref _Caminho, value);
             }
         }
 
@@ -183,10 +197,11 @@ namespace CalendarApp.UI.ViewModels
 
                 var agendamento = CalendarApp.App.Startup.Container.GetService<IAgendamento>();
                 var novoAgendamento = new CadastrarAgendamento();
-                novoAgendamento.Comando = Comando;
+                novoAgendamento.Caminho = Caminho;
                 novoAgendamento.Argumento = Argumento;
                 novoAgendamento.Executavel = Executavel;
                 novoAgendamento.Nome = Nome;
+                novoAgendamento.NomeArquivo = NomeArquivo;
                 novoAgendamento.Horario = Horario;
                 novoAgendamento.NomeComando = NomeComando;
                 novoAgendamento.Descricao = Descricao;

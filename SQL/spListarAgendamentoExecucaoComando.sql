@@ -13,6 +13,7 @@ AS
 			COMANDO.Caminho,
 			COMANDO.Argumento,
 			COMANDO.Nome,
+			COMANDO.NomeArquivo,
 			EXECUCAO.AgendamentoId,
 			AGENDAMENTO.Horario,
 			Execucao.Data,

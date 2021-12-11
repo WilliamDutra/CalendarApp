@@ -4,8 +4,9 @@ GO
 CREATE TABLE Comando (
 	Id INT PRIMARY KEY IDENTITY,
 	Nome VARCHAR(100),
+	NomeArquivo VARCHAR(100) NULL,
 	Descricao VARCHAR(100) NULL,
-	Caminho VARCHAR(255),
+	Caminho VARCHAR(255) NULL,
 	Argumento VARCHAR(255) NULL,
 	Executavel BIT,
 	CadastradoEm DATETIME,

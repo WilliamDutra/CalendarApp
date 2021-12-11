@@ -89,12 +89,18 @@
                                     <Label Content="Associar um Comando" />
                                 </StackPanel>
                                 <StackPanel>
-                                    <Label Content="Nome" />
+                                    <Label Content="Nome do comando" />
                                     <TextBox x:Name="NomeComando" Text="{ Binding NomeComando }" Height="30" />
                                 </StackPanel>
+
                                 <StackPanel>
-                                    <Label Content="Comando" />
-                                    <TextBox x:Name="Comando" Text="{ Binding Comando }" Height="30" />
+                                    <Label Content="Nome do arquivo" />
+                                    <TextBox x:Name="NomeArquivo" Text="{ Binding NomeArquivo }" Height="30" />
+                                </StackPanel>
+
+                                <StackPanel>
+                                    <Label Content="Caminho do arquivo" />
+                                    <TextBox x:Name="Comando" Text="{ Binding Caminho }" Height="30" />
                                 </StackPanel>
                                 <StackPanel>
                                     <Label Content="Argumentos" />

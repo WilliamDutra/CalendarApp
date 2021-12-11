@@ -67,8 +67,9 @@ namespace CalendarApp.App.Services
                     cmd.AtualizadoEm = DateTime.Now;
                     cmd.CadastroEm = DateTime.Now;
                     cmd.Nome = agendamento.NomeComando;
+                    cmd.NomeArquivo = agendamento.NomeArquivo;
                     cmd.Executavel = agendamento.Executavel;
-                    cmd.Caminho = agendamento.Comando;
+                    cmd.Caminho = agendamento.Caminho;
                     cmd.Argumento = agendamento.Argumento;
                     idComando = _ComandoService.Salvar(cmd);
 
@@ -116,9 +117,10 @@ namespace CalendarApp.App.Services
                     cmd.AtualizadoEm = DateTime.Now;
                     cmd.CadastroEm = DateTime.Now;
                     cmd.Nome = agendamento.NomeComando;
+                    cmd.NomeArquivo = agendamento.NomeArquivo;
                     cmd.Argumento = agendamento.Argumento;
                     cmd.Executavel = agendamento.Executavel;
-                    cmd.Caminho = agendamento.Comando;
+                    cmd.Caminho = agendamento.Caminho;
                     idComando = _ComandoService.Salvar(cmd);
 
                     var exec = new Execucao();

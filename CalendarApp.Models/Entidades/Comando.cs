@@ -10,6 +10,8 @@ namespace CalendarApp.Models.Entidades
 
         public string Nome { get; set; }
 
+        public string NomeArquivo { get; set; }
+
         public string Descricao { get; set; }
 
         public string Caminho { get; set; }
