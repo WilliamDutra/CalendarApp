@@ -25,6 +25,37 @@ namespace CalendarApp.App.Services
             _ComandoService = ComandoService;
         }
 
+        public Agendamento Alterar(Agendamento agendamento)
+        {
+            try
+            {
+                return _AgendamentoRepositorio.Alterar(agendamento);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public Agendamento Listar(int Id)
+        {
+            try
+            {
+                return _AgendamentoRepositorio.Listar(Id);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public List<Agendamento> Listar(Agendamento agendamento)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<AgendamentoExecucaoComando> ListarAgendamentoParaExecucao()
         {
             try

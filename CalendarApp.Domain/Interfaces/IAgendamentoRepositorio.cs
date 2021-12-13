@@ -16,5 +16,7 @@ namespace CalendarApp.Domain.Interfaces
 
         Agendamento Alterar(Agendamento agendamento);
 
+        Agendamento Listar(int Id);
+
     }
 }

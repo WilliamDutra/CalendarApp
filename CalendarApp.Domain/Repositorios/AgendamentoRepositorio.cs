@@ -22,7 +22,41 @@ namespace CalendarApp.Domain.Repositorios
 
         public Agendamento Alterar(Agendamento agendamento)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var Db = _Conexao.AbrirConexao())
+                {
+                    var Parametros = new DynamicParameters();
+
+                    if (!string.IsNullOrEmpty(agendamento.Nome))
+                        Parametros.Add("@NOME", agendamento.Nome, DbType.String);
+                    else
+                        Parametros.Add("@NOME", DBNull.Value, DbType.String);
+
+                    if (!string.IsNullOrEmpty(agendamento.Descricao))
+                        Parametros.Add("@DESCRICAO", agendamento.Descricao, DbType.String);
+                    else
+                        Parametros.Add("@DESCRICAO", DBNull.Value, DbType.String);
+
+                    if (agendamento.Horario <= DateTime.MaxValue && agendamento.Horario >= DateTime.MinValue)
+                        Parametros.Add("@HORARIO", agendamento.Horario, DbType.DateTime);
+                    else
+                        Parametros.Add("@HORARIO", DBNull.Value, DbType.DateTime);
+
+                    Parametros.Add("@ATUALIZADOEM", agendamento.AtualizadoEm, DbType.DateTime);
+                    Parametros.Add("@ID", agendamento.Id, DbType.Int32);
+
+                    Db.Query("spAlterarAgendamento", Parametros, commandType: CommandType.StoredProcedure);
+
+                    return agendamento;
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public List<Agendamento> Listar()
@@ -70,6 +104,26 @@ namespace CalendarApp.Domain.Repositorios
                 }
             }
             catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public Agendamento Listar(int Id)
+        {
+            try
+            {
+                using (var Db = _Conexao.AbrirConexao())
+                {
+                    var Parametros = new DynamicParameters();
+                    Parametros.Add("@ID", Id, DbType.Int32);
+
+                    return Db.Query<Agendamento>("spListarAgendamento", Parametros, commandType: CommandType.StoredProcedure)
+                             .FirstOrDefault();
+                }
+            }
+            catch (Exception ex)
             {
 
                 throw;

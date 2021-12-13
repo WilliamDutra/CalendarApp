@@ -1,0 +1,36 @@
+﻿<Window x:Class="CalendarApp.UI.FRM.FrmEditarAgendamento"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CalendarApp.UI.FRM"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="Editar Agendamento" Height="400" Width="300">
+    <Grid>
+
+        <StackPanel Margin="15">
+            
+            <StackPanel >
+                <Label Content="Nome"></Label>
+                <TextBox x:Name="Nome" Text="{ Binding Nome }" />
+            </StackPanel>
+
+            <StackPanel >
+                <Label Content="Descrição"></Label>
+                <TextBox Height="100" x:Name="Descricao" Text="{ Binding Descricao  }" />
+            </StackPanel>
+
+            <StackPanel >
+                <Label Content="Horario de Execução" />
+                <xctk:MaskedTextBox x:Name="Horario" Mask="00:00" Text="{ Binding Horario, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True  }" />
+            </StackPanel>
+
+            
+            <StackPanel Margin="10" >
+                <Button Content="Salvar" Command="{ Binding AlterarCommand }" />
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</Window>

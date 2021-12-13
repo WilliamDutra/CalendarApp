@@ -12,5 +12,11 @@ namespace CalendarApp.App.Interfaces
 
         List<AgendamentoExecucaoComando> ListarAgendamentoParaExecucao();
 
+        Agendamento Listar(int Id);
+
+        List<Agendamento> Listar(Agendamento agendamento);
+
+        Agendamento Alterar(Agendamento agendamento);
+
     }
 }

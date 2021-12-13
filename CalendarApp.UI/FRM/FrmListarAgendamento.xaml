@@ -9,7 +9,7 @@
     <Grid>
         <StackPanel Margin="20">
             <Border Padding="10">
-                <DataGrid ItemsSource="{ Binding ListaAgendamentos }" HorizontalAlignment="Center" AutoGenerateColumns="False">
+                <DataGrid ItemsSource="{ Binding ListaAgendamentos }" HorizontalAlignment="Center" AutoGenerateColumns="False" Width="700">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Id" Binding="{ Binding Id }"/>
                         <DataGridTextColumn Header="Nome" Binding="{ Binding Nome }"/>
@@ -18,7 +18,19 @@
                         <DataGridTextColumn Header="Horário de execução" Binding="{ Binding Horario, StringFormat=\{0:HH:mm:ss \} }"/>
                         <DataGridTextColumn Header="Última execução" Binding="{ Binding AtualizadoEm, StringFormat=\{0:dd/MM/yyyy HH:mm \} }"/>
                         <DataGridTextColumn Header="Execução" Binding="{ Binding Executado }"/>
+
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Command="{ Binding Path=DataContext.EditarCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}} }" CommandParameter="{ Binding Id }" Content="Visualizar" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
                     </DataGrid.Columns>
+
+
+
                 </DataGrid>
             </Border>
         </StackPanel>
