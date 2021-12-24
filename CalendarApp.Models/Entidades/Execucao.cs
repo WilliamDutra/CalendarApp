@@ -14,6 +14,8 @@ namespace CalendarApp.Models.Entidades
 
         public DateTime Data { get; set; }
 
+        public DateTime Horario { get; set; }
+
         public string MensagemRetorno { get; set; }
 
         public bool? Executado { get; set; }

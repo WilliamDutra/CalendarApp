@@ -100,6 +100,7 @@ namespace CalendarApp.Domain.Repositorios
                     Parametros.Add("@IDAGENDAMENTO", execucao.AgendamentoId, DbType.Int32);
                     Parametros.Add("@IDCOMANDO", execucao.ComandoId, DbType.Int32);
                     Parametros.Add("@DATA", execucao.Data, DbType.DateTime);
+                    Parametros.Add("@HORARIO", execucao.Horario, DbType.DateTime);
                     Parametros.Add("@EXECUTADO", execucao.Executado, DbType.Boolean);
                     Parametros.Add("@CADASTRADOEM", execucao.CadastradoEm, DbType.DateTime);
                     Parametros.Add("@ATUALIZADOEM", execucao.AtualizadoEm, DbType.DateTime);

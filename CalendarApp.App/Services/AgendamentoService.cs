@@ -124,6 +124,7 @@ namespace CalendarApp.App.Services
                                 exec.AgendamentoId = idAgendamento;
                                 exec.ComandoId = idComando;
                                 exec.Executado = false;
+                                exec.Horario = DateTime.Parse($"{DataExecucao} {agendamento.Horario}");
                                 exec.CadastradoEm = DateTime.Now;
                                 exec.AtualizadoEm = DateTime.Now;
                                 exec.Data = DataExecucao;
@@ -161,6 +162,7 @@ namespace CalendarApp.App.Services
                     exec.CadastradoEm = DateTime.Now;
                     exec.AtualizadoEm = DateTime.Now;
                     exec.Data = DateTime.Now;
+                    exec.Horario = DateTime.Parse($"{DateTime.Now.ToString("dd-MM-yyyy")} {agendamento.Horario}");
                     idExecucao = _ExecucaoService.Salvar(exec);
                 }
 
