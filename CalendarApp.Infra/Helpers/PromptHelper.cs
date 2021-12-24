@@ -87,7 +87,7 @@ namespace CalendarApp.Infra.Helpers
 
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 //TODO : Colocar um log para capturar os erros
                 isExecutado = false; 

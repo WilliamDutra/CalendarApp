@@ -15,7 +15,7 @@ AS
 			COMANDO.Nome,
 			COMANDO.NomeArquivo,
 			EXECUCAO.AgendamentoId,
-			AGENDAMENTO.Horario,
+			EXECUCAO.Horario,
 			Execucao.Data,
 			EXECUCAO.AtualizadoEm,
 			AGENDAMENTO.Descricao,
