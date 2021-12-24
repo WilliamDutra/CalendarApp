@@ -77,7 +77,7 @@ namespace CalendarApp.Infra.Helpers
                     info.WorkingDirectory = Path;
                     info.FileName = NomeArquivo;
                     info.Arguments = PercorreArgumentos(Args);
-
+                    
                     Process start = new Process();
                     
                     start.StartInfo = info;
@@ -125,7 +125,7 @@ namespace CalendarApp.Infra.Helpers
 
             foreach (var args in Args)
             {
-                Argumento.Append(" " + args + " ");
+                Argumento.Append($" \"{args}\" ");
             }
 
             return Argumento.ToString();

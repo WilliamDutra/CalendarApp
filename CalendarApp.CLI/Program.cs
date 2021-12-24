@@ -33,8 +33,8 @@ namespace CalendarApp.CLI
                         try
                         {
 
-                            var args1 = agendamento.Argumento.Split(' ');
-
+                            var args1 = agendamento.Argumento.Split(';');
+                                                        
                             bool isExecucao = prompt.Run(agendamento.Caminho, agendamento.NomeArquivo, args1, agendamento.Horario, agendamento.Data);
 
                             if (isExecucao)
