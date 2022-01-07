@@ -16,7 +16,7 @@ namespace CalendarApp.Models.Entidades
 
         public string Caminho { get; set; }
 
-        public bool Executavel { get; set; }
+        public bool? Executavel { get; set; }
 
         public string Argumento { get; set; }
 

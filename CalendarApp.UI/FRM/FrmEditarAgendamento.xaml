@@ -6,14 +6,14 @@
         xmlns:local="clr-namespace:CalendarApp.UI.FRM"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="Editar Agendamento" Height="400" Width="300">
+        Title="Editar Agendamento" Height="500" Width="300">
     <Grid>
 
-        <StackPanel Margin="15">
-            
-            <StackPanel >
+        <StackPanel Margin="15" Orientation="Vertical">
+
+            <StackPanel Margin="0,10">
                 <Label Content="Nome"></Label>
-                <TextBox x:Name="Nome" Text="{ Binding Nome }" />
+                <TextBox Height="30" x:Name="Nome" Text="{ Binding Nome }" />
             </StackPanel>
 
             <StackPanel >
@@ -21,12 +21,23 @@
                 <TextBox Height="100" x:Name="Descricao" Text="{ Binding Descricao  }" />
             </StackPanel>
 
-            <StackPanel >
+            <StackPanel Margin="0,10">
                 <Label Content="Horario de Execução" />
-                <xctk:MaskedTextBox x:Name="Horario" Mask="00:00" Text="{ Binding Horario, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True  }" />
+                <xctk:MaskedTextBox Height="30" x:Name="Horario" Mask="00:00" Text="{ Binding Horario, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True  }" />
             </StackPanel>
 
-            
+            <StackPanel Margin="0,10">
+                <Border Padding="10" BorderThickness="1" BorderBrush="Black">
+                    
+                    <StackPanel>
+                        <Label Content="Comando" />
+                        <ComboBox ItemsSource="{ Binding ListaDeComandos }" SelectedItem="{ Binding ComandoSelecionado }" DisplayMemberPath="Nome" />
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+
+            <Separator/>
+
             <StackPanel Margin="10" >
                 <Button Content="Salvar" Command="{ Binding AlterarCommand }" />
             </StackPanel>

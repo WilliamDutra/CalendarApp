@@ -24,6 +24,32 @@ namespace CalendarApp.Domain.Repositorios
             throw new NotImplementedException();
         }
 
+        public List<Comando> Listar(Comando comando)
+        {
+            try
+            {
+                using (var Db = _Conexao.AbrirConexao())
+                {
+                    DynamicParameters Parametros = new DynamicParameters();
+
+                    if (comando.Id > 0)
+                        Parametros.Add("@ID", comando.Id, DbType.Int32);
+                    else
+                        Parametros.Add("@ID", DBNull.Value, DbType.Int32);
+
+                    
+                    return Db.Query<Comando>("spListarComando", Parametros, commandType: CommandType.StoredProcedure)
+                             .ToList();
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public int Salvar(Comando comando)
         {
             try

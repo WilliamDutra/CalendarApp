@@ -30,6 +30,19 @@ namespace CalendarApp.App.Services
             }
         }
 
+        public List<Execucao> Listar(Execucao execucao)
+        {
+            try
+            {
+                return _ExecucaoRepositorio.Listar(execucao);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public List<ExecucaoAgendamento> ListarExecucoesAgendamento()
         {
             try

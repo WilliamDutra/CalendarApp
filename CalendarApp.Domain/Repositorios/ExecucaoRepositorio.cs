@@ -89,6 +89,42 @@ namespace CalendarApp.Domain.Repositorios
             }
         }
 
+        public List<Execucao> Listar(Execucao execucao)
+        {
+            try
+            {
+                using (var Db = _Conexao.AbrirConexao())
+                {
+                    DynamicParameters Parametros = new DynamicParameters();
+
+                    if (execucao.Id > 0)
+                        Parametros.Add("@ID", execucao.Id, DbType.Int32);
+                    else
+                        Parametros.Add("@ID", DBNull.Value, DbType.Int32);
+
+                    if (execucao.AgendamentoId > 0)
+                        Parametros.Add("@IDAGENDAMENTO", execucao.AgendamentoId, DbType.Int32);
+                    else
+                        Parametros.Add("@IDAGENDAMENTO", DBNull.Value, DbType.Int32);
+
+                    if (execucao.ComandoId > 0)
+                        Parametros.Add("@IDCOMANDO", execucao.ComandoId, DbType.Int32);
+                    else
+                        Parametros.Add("@IDCOMANDO", DBNull.Value, DbType.Int32);
+
+                    return Db.Query<Execucao>("spListarExecucao", Parametros, commandType: CommandType.StoredProcedure)
+                             .ToList();
+
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public int Salvar(Execucao execucao)
         {
             try

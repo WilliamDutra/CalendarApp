@@ -11,5 +11,7 @@ namespace CalendarApp.Domain.Interfaces
 
         Comando Alterar(Comando comando);
 
+        List<Comando> Listar(Comando comando);
+
     }
 }

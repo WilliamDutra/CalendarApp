@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using MvvmHelpers.Commands;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace CalendarApp.UI.ViewModels
@@ -14,17 +15,47 @@ namespace CalendarApp.UI.ViewModels
 
         public Command AlterarCommand { get; set; }
 
+        private Comando _ComandoSelecionado;
+
+        public Comando ComandoSelecionado 
+        {
+            get
+            {
+                return _ComandoSelecionado;
+            }
+            set
+            {
+                SetProperty(ref _ComandoSelecionado, value);
+            }
+        }
+
+        private List<Comando> _ListaDeComandos;
+
+        public List<Comando> ListaDeComandos
+        {
+            get
+            {
+                return _ListaDeComandos;
+            }
+            set
+            {
+                SetProperty(ref _ListaDeComandos, value);
+            }
+        }
+
         public FrmEditarAgendamentoViewModel(int Id)
         {
             var agendamento = Startup.Container.GetService<IAgendamento>();
             var current = agendamento.Listar(Id);
-
+            
             Nome = current.Nome;
             Descricao = current.Descricao;
             Horario = current.Horario.ToString("HH:mm");
 
             AlterarCommand = new Command(() => Alterar(Id));
-            
+
+            CarregarComandoPorAgendamento(Id);
+            CarregarComandos();
         }
 
         public FrmEditarAgendamentoViewModel()
@@ -88,5 +119,32 @@ namespace CalendarApp.UI.ViewModels
             agendamento.Alterar(agendamentoEditado);
 
         }
+
+        private void CarregarComandoPorAgendamento(int AgendamentoId)
+        {
+            var execucao = Startup.Container.GetService<IExecucao>();
+            var comando = Startup.Container.GetService<IComando>();
+
+            var pesquisaExecucao = new Execucao();
+            pesquisaExecucao.AgendamentoId = AgendamentoId;
+
+            var currentExecucao = execucao.Listar(pesquisaExecucao)
+                                          .FirstOrDefault();
+
+            var pesquisaComando = new Comando();
+            pesquisaComando.Id = currentExecucao.ComandoId;
+
+            var currentComando = comando.Listar(pesquisaComando)
+                                        .FirstOrDefault();
+
+            ComandoSelecionado = currentComando;
+        }
+
+        private void CarregarComandos()
+        {
+            var comando = Startup.Container.GetService<IComando>();
+            ListaDeComandos = comando.Listar(new Comando());
+        }
+
     }
 }

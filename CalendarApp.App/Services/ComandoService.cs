@@ -16,6 +16,19 @@ namespace CalendarApp.App.Services
             _ComandoRepositorio = ComandoRepositorio;
         }
 
+        public List<Comando> Listar(Comando comando)
+        {
+            try
+            {
+                return _ComandoRepositorio.Listar(comando);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public int Salvar(Comando comando)
         {
             try

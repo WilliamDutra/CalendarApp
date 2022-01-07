@@ -14,5 +14,7 @@ namespace CalendarApp.Domain.Interfaces
 
         List<ExecucaoAgendamento> Listar();
 
+        List<Execucao> Listar(Execucao excecucao);
+
     }
 }

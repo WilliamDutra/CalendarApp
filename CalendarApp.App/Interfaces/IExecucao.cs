@@ -14,5 +14,7 @@ namespace CalendarApp.App.Interfaces
 
         Execucao Alterar(Execucao execucao);
 
+        List<Execucao> Listar(Execucao execucao);
+
     }
 }

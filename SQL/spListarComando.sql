@@ -7,8 +7,7 @@ CREATE PROCEDURE spListarComando (
 	@DESCRICAO VARCHAR(255) = NULL,
 	@CAMINHO VARCHAR(255) = NULL,
 	@ARGUMENTO VARCHAR(255) = NULL,
-	@EXECUTAVEL BIT = NULL,
-	@ATUALIZADOEM DATETIME = NULL
+	@EXECUTAVEL BIT = NULL
 )
 AS
 	BEGIN
@@ -24,18 +23,6 @@ AS
 		FROM
 			Comando 
 		WHERE
-			Nome = ISNULL(@NOME, Nome)
-		AND
-			Descricao = ISNULL(@DESCRICAO, Descricao)
-		AND
-			Caminho = ISNULL(@CAMINHO, Caminho)
-		AND
-			Executavel = ISNULL(@EXECUTAVEL, Executavel)
-		AND
-			Argumento = ISNULL(@ARGUMENTO, Argumento)
-		AND
-			AtualizadoEM = ISNULL(@ATUALIZADOEM, AtualizadoEm)
-		AND
-			Id = @ID
+			Id = ISNULL(@ID, Id)
 	
 	END

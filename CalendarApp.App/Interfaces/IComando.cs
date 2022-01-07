@@ -9,5 +9,7 @@ namespace CalendarApp.App.Interfaces
     {
         int Salvar(Comando comando);
 
+        List<Comando> Listar(Comando comando);
+
     }
 }
