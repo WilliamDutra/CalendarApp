@@ -17,11 +17,26 @@
 
                 <StackPanel Margin="10" Orientation="Horizontal">
 
-                    <Button Margin="10" Content="Criar Agendamento" Width="150" Height="30" Command="{ Binding Cadastrar }">
-                    </Button>
+                    <StackPanel>
+                        <Button Margin="10" Width="128" Height="128" Command="{ Binding Cadastrar }">
+                            <Image Source="/Imagens/icone-relogio.png" />
+                        </Button>
+                        <Label HorizontalAlignment="Center" Content="Criar Agendamento" />
+                    </StackPanel>
+                    
+                    <StackPanel>
+                        <Button Margin="10" Width="128" Height="128" Command="{ Binding Visualizar }">
+                            <Image Source="/Imagens/icone-agendamento.png" />
+                        </Button>
+                        <Label HorizontalAlignment="Center" Content="Visualizar Agendamentos"/>
+                    </StackPanel>
 
-                    <Button Margin="10" Content="Visualizar Agendamento" Width="150" Height="30" Command="{ Binding Visualizar }">
-                    </Button>
+                    <StackPanel>
+                        <Button Margin="10" Width="128" Height="128">
+                            <Image Source="/Imagens/icone-comando.png" />
+                        </Button>
+                        <Label HorizontalAlignment="Center" Content="Visualizar Comandos"/>
+                    </StackPanel>
 
 
                 </StackPanel>
