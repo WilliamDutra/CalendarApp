@@ -9,16 +9,21 @@
     <Grid>
         <StackPanel Margin="20">
             <Border Padding="10">
-                <DataGrid ItemsSource="{ Binding ListaAgendamentos }" HorizontalAlignment="Center" AutoGenerateColumns="False" Width="700">
+                <DataGrid ItemsSource="{ Binding ListaAgendamentos }" HorizontalAlignment="Center" AutoGenerateColumns="False" Width="700" CanUserAddRows="False">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Id" Binding="{ Binding Id }"/>
                         <DataGridTextColumn Header="Nome" Binding="{ Binding Nome }"/>
                         <DataGridTextColumn Header="Descrição" Binding="{ Binding Descricao }"/>
-                        <DataGridTextColumn Header="Data de execução" Binding="{ Binding Data, StringFormat=\{0:dd/MM/yyyy HH:mm \} }"/>
-                        <DataGridTextColumn Header="Horário de execução" Binding="{ Binding Horario, StringFormat=\{0:HH:mm:ss \} }"/>
-                        <DataGridTextColumn Header="Última execução" Binding="{ Binding AtualizadoEm, StringFormat=\{0:dd/MM/yyyy HH:mm \} }"/>
-                        <DataGridTextColumn Header="Execução" Binding="{ Binding Executado }"/>
-
+                        <DataGridTextColumn Header="Horário de agendamento" Binding="{ Binding Horario, StringFormat=\{0:HH:mm:ss \} }"/>
+                        
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="{ Binding QtdExecucoes }" Style="{ DynamicResource RoundButton }" Background="Green" Foreground="White" FontFamily="Arial" FontSize="15" Width="50"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        
                         <DataGridTemplateColumn>
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>

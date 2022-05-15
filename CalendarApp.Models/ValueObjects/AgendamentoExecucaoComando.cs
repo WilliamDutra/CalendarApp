@@ -28,5 +28,7 @@ namespace CalendarApp.Models.ValueObjects
 
         public string Descricao { get; set; }
 
+        public int QtdExecucoes { get; set; }
+
     }
 }

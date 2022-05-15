@@ -148,7 +148,7 @@ namespace CalendarApp.Domain.Repositorios
                              .FirstOrDefault();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw;

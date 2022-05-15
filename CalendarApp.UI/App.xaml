@@ -15,5 +15,14 @@
             </Style.Triggers>
         </Style>
 
+        <Style TargetType="{x:Type Button}" x:Key="RoundButton">
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15" />
+                    <Setter Property="Padding" Value="2" />
+                </Style>
+            </Style.Resources>
+        </Style>
+
     </Application.Resources>
 </Application>

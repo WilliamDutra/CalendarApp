@@ -14,11 +14,9 @@ namespace CalendarApp.Models.ValueObjects
 
         public bool Executado { get; set; }
 
-        public DateTime Data { get; set; }
-
         public DateTime Horario { get; set; }
 
-        public DateTime AtualizadoEm { get; set; }
+        public int QtdExecucoes { get; set; }
 
     }
 }

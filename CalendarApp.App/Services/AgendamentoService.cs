@@ -124,7 +124,7 @@ namespace CalendarApp.App.Services
                                 exec.AgendamentoId = idAgendamento;
                                 exec.ComandoId = idComando;
                                 exec.Executado = false;
-                                exec.Horario = DateTime.Parse($"{DataExecucao} {agendamento.Horario}");
+                                exec.Horario = DateTime.Parse($"{DataExecucao.ToString("dd/MM/yyyy")} {agendamento.Horario}");
                                 exec.CadastradoEm = DateTime.Now;
                                 exec.AtualizadoEm = DateTime.Now;
                                 exec.Data = DataExecucao;

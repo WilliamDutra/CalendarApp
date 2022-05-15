@@ -20,6 +20,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalendarApp.App", "CalendarApp.App\CalendarApp.App.csproj", "{80A381B1-3818-4F95-A092-10B68BDAE74E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "09 - SQL", "09 - SQL", "{EFBCB0EB-3B31-4930-B551-8432254B3C78}"
+	ProjectSection(SolutionItems) = preProject
+		Geral.sql = Geral.sql
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Procedures", "Procedures", "{121218CF-CEB7-4A03-8F77-DF6029895ECA}"
 	ProjectSection(SolutionItems) = preProject
@@ -29,7 +32,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Procedures", "Procedures", 
 		SQL\spListarAgendamento.sql = SQL\spListarAgendamento.sql
 		SQL\spListarAgendamentoExecucaoComando.sql = SQL\spListarAgendamentoExecucaoComando.sql
 		SQL\spListarComando.sql = SQL\spListarComando.sql
-		spListarExecucao.sql = spListarExecucao.sql
+		SQL\spListarExecucao.sql = SQL\spListarExecucao.sql
 		SQL\spListarExecucaoAgendamento.sql = SQL\spListarExecucaoAgendamento.sql
 		SQL\spSalvarAgendamento.sql = SQL\spSalvarAgendamento.sql
 		SQL\spSalvarComando.sql = SQL\spSalvarComando.sql
