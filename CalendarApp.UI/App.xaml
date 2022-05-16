@@ -18,11 +18,23 @@
         <Style TargetType="{x:Type Button}" x:Key="RoundButton">
             <Style.Resources>
                 <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="15" />
-                    <Setter Property="Padding" Value="2" />
+                    <Setter Property="CornerRadius" Value="18" />
                 </Style>
             </Style.Resources>
         </Style>
 
+        <Style TargetType="{x:Type DataGrid}" x:Key="CellCentered">
+            <Style.Resources>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="TextBlock.TextAlignment" Value="Center" />
+                    <Setter Property="TextBlock.FontFamily" Value="Arial" />
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <Style TargetType="{x:Type TextBlock}" x:Key="Padding">
+            <Setter Property="Padding" Value="10"/>
+        </Style>
+        
     </Application.Resources>
 </Application>

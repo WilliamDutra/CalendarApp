@@ -9,29 +9,37 @@
     <Grid>
         <StackPanel Margin="20">
             <Border Padding="10">
-                <DataGrid ItemsSource="{ Binding ListaAgendamentos }" HorizontalAlignment="Center" AutoGenerateColumns="False" Width="700" CanUserAddRows="False">
+                <DataGrid ItemsSource="{ Binding ListaAgendamentos }" HorizontalAlignment="Center" AutoGenerateColumns="False" Width="700" CanUserAddRows="False" Style="{ DynamicResource CellCentered }">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Id" Binding="{ Binding Id }"/>
-                        <DataGridTextColumn Header="Nome" Binding="{ Binding Nome }"/>
-                        <DataGridTextColumn Header="Descrição" Binding="{ Binding Descricao }"/>
-                        <DataGridTextColumn Header="Horário de agendamento" Binding="{ Binding Horario, StringFormat=\{0:HH:mm:ss \} }"/>
-                        
-                        <DataGridTemplateColumn>
+                        <DataGridTextColumn Header="Id" Binding="{ Binding Id }" ElementStyle="{ StaticResource Padding }" />
+                        <DataGridTextColumn Header="Nome" Binding="{ Binding Nome }" ElementStyle="{ StaticResource Padding }" />
+                        <DataGridTextColumn Header="Descrição" Binding="{ Binding Descricao }" ElementStyle="{ StaticResource Padding }" />
+                        <DataGridTextColumn Header="Horário de agendamento" Binding="{ Binding Horario, StringFormat=\{0:HH:mm:ss \} }" ElementStyle="{ StaticResource Padding }" />
+
+                        <DataGridTemplateColumn Header="Quantidade de excuções">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Button Content="{ Binding QtdExecucoes }" Style="{ DynamicResource RoundButton }" Background="Green" Foreground="White" FontFamily="Arial" FontSize="15" Width="50"/>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        
+
+                     
+
                         <DataGridTemplateColumn>
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Command="{ Binding Path=DataContext.EditarCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}} }" CommandParameter="{ Binding Id }" Content="Visualizar" />
+                                    <Border Padding="5">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Command="{ Binding Path=DataContext.EditarCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}} }" CommandParameter="{ Binding Id }" Content="Editar" />
+                                            <Button Command="{ Binding Path=DataContext.VerCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}} }" CommandParameter="{ Binding Id }" Content="Ver" />
+                                        </StackPanel>
+                                    </Border>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
 
+                        
                     </DataGrid.Columns>
 
 

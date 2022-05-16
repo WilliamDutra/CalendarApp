@@ -14,13 +14,15 @@ namespace CalendarApp.UI.ViewModels
     {
         public Command EditarCommand { get; set; }
 
+        public Command VerCommand { get; set; }
+
         public FrmListarAgendamentoViewModel()
         {
             var execucoes = CalendarApp.App.Startup.Container.GetService<IExecucao>();
             ListaAgendamentos = execucoes.ListarExecucoesAgendamento();
 
             EditarCommand = new Command((Id) => Editar((int)Id));
-
+            VerCommand = new Command((Id) => Ver((int)Id));
         }
 
         private List<ExecucaoAgendamento> _ListaAgendamentos;
@@ -41,6 +43,12 @@ namespace CalendarApp.UI.ViewModels
         {
             var frmEditarAgendamento = new FrmEditarAgendamento(Id);
             frmEditarAgendamento.ShowDialog();
+        }
+
+        private void Ver(int Id)
+        {
+            var frmListarExecucao = new FrmListarExecucao(Id);
+            frmListarExecucao.ShowDialog();
         }
 
     }
